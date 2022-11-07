@@ -14,12 +14,23 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
+            $table->engine = "InnoDB";
+
+            $table->integerIncrements('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('country');
+            $table->string('town');
+            $table->integer('postcode');
+            $table->string('address');
+            $table->string('phone')->unique();
+            $table->string('contactperson');
+            $table->string('contactpersonphone');
             $table->string('password');
+            $table->timestamp('birthday');
+            $table->enum('role', ['Admin', 'Teacher', 'Student'])->default('Student');
             $table->rememberToken();
+            $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();
         });
     }

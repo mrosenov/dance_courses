@@ -17,7 +17,7 @@ use \App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -34,5 +34,7 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('/users', [DashboardController::class, 'index']);
     });
 });
+
+Route::get('/admin')->name('admin')->middleware('admin');
 
 require __DIR__.'/auth.php';
