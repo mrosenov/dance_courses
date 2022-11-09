@@ -32,8 +32,8 @@
             <ul class="nav navbar-nav">
                 <li class="dropdown user-menu">
                     <button class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">
-                        <img src="assets/admin/img/user/user-xs-01.jpg" class="user-image rounded-circle" alt="User Image">
-                        <span class="d-none d-lg-inline-block">John Doe</span>
+                        <img src="{{asset('assets/admin/img/user/user-xs-01.jpg')}}" class="user-image rounded-circle" alt="User Image">
+                        <span class="d-none d-lg-inline-block">{{Auth::user()->name}}</span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
                         <li>
@@ -42,26 +42,15 @@
                                 <span class="nav-text">My Profile</span>
                             </a>
                         </li>
-                        <li>
-                            <a class="dropdown-link-item" href="email-inbox.html">
-                                <i class="mdi mdi-email-outline"></i>
-                                <span class="nav-text">Message</span>
-                                <span class="badge badge-pill badge-primary">24</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-link-item" href="user-activities.html">
-                                <i class="mdi mdi-diamond-stone"></i>
-                                <span class="nav-text">Activitise</span></a>
-                        </li>
-                        <li>
-                            <a class="dropdown-link-item" href="user-account-settings.html">
-                                <i class="mdi mdi-settings"></i>
-                                <span class="nav-text">Account Setting</span>
-                            </a>
-                        </li>
                         <li class="dropdown-footer">
-                            <a class="dropdown-link-item" href="sign-in.html"> <i class="mdi mdi-logout"></i> Log Out </a>
+
+                            <a href="{{ route('logout') }}" class="dropdown-link-item" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
+                                <i class="mdi mdi-logout"></i>
+                                <span class="nav-text">Log out</span>
+                            </a>
+                            <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                         </li>
                     </ul>
                 </li>

@@ -1,5 +1,5 @@
 @extends('admin.layouts.default_admin')
 
-@section('test')
+@section('section')
 content
 @endsection

@@ -17,6 +17,7 @@
     <link href="{{asset('assets/admin/1.3.6/quill.snow.css')}}" rel="stylesheet">
     <link href="{{asset('assets/admin/plugins/toaster/toastr.min.css')}}" rel="stylesheet">
     <link id="main-css-href" rel="stylesheet" href="{{asset('assets/admin/css/mono.css')}}">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.0/css/all.css">
 
     <link href="{{asset('assets/admin/img/favicon.png')}}" rel="shortcut icon">
     <!--[if lt IE 9]>
