@@ -2,12 +2,21 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\SemestersModel;
+use App\Models\User;
 use Illuminate\Http\Request;
+use \App\Http\Controllers\AgeGroupsController;
+use \App\Http\Controllers\SemestersController;
 
 class DashboardController extends Controller
 {
-    public function index()
+    public function index(User $users)
     {
-        return view('dashboard.index');
+        $AgeGroup = AgeGroupsController::class;
+        return view('admin.index', [
+            'users' => $users->get(),
+            'AgeGroup' => $AgeGroup,
+        ]);
     }
 }

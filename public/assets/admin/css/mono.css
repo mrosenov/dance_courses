@@ -11149,7 +11149,7 @@ table.dataTable thead .sorting {
 
 /* Data table Filter */
 .dataTables_wrapper .dataTables_filter {
-  float: none;
+  float: right;
   text-align: left;
   margin-bottom: 15px; }
   .dataTables_wrapper .dataTables_filter label {

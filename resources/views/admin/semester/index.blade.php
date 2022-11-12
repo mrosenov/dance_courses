@@ -32,6 +32,9 @@
                             <td style="vertical-align: middle"><a href="{{route('studio', $studio->id)}}">{{$studio->name}}</a></td>
                             <td style="vertical-align: middle">{{ $studio->active ? 'Active' : 'Not Active' }}</td>
                             <th class="text-center">
+                                <a href="{{route('studio', $studio->id)}}" class="btn btn-sm btn-outline-smoke">
+                                    <i class="fa-duotone fa-books"></i>
+                                </a>
                                 <a href="#" class="btn btn-sm btn-outline-smoke">
                                     <i class="fa-duotone fa-pen-to-square"></i>
                                 </a>

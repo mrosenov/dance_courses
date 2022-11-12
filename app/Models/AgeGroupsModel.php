@@ -11,4 +11,8 @@ class AgeGroupsModel extends Model
 
     protected $fillable = ['name', 'description', 'active'];
     protected $table = "age_groups";
+
+    public function Courses() {
+        return $this->hasMany(CoursesModel::class, 'age_group', 'id');
+    }
 }

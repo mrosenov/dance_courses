@@ -19,4 +19,8 @@ class StudiosModel extends Model
     public function Semester() {
         return $this->belongsTo(SemestersModel::class, 'semester', 'id');
     }
+
+    public function SemesterCourses() {
+        return $this->hasMany(SemestersCalendarModel::class, 'studio', 'id');
+    }
 }

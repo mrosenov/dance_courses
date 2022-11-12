@@ -6,6 +6,7 @@
 @include('head.navigation')
 @include('head.mobile_navigation')
 @include('head.search_popup')
+    @include('alerts')
 
     @yield('index_slider')
     @yield('index_posts')

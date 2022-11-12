@@ -7,6 +7,7 @@ use \App\Http\Controllers\DashboardController;
 use \App\Http\Controllers\SemestersController;
 use \App\Http\Controllers\StudiosController;
 use \App\Http\Controllers\CoursesController;
+use \App\Http\Controllers\SemestersCalendarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,22 +34,21 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/email/resend', 'VerificationController@resend')->name('verification.resend');
 });
 
-Route::group(['middleware' => ['auth']], function() {
-    Route::group(['middleware' => ['verified']], function() {
-        Route::get('/users', [DashboardController::class, 'index']);
-    });
-});
 
-
-Route::get('/admin', function () {
-    return view('admin.index');
-})->name('admin')->middleware('admin');
+// Dashboard Admin Panel
+Route::get('/admin', [DashboardController::class, 'index'])->name('admin')->middleware('admin');
 
 //Semesters
 Route::get('admin/semesters', [SemestersController::class, 'index'])->name('semesters')->middleware('admin');
 Route::get('admin/semesters/{semester:id}', [SemestersController::class, 'index_semester'])->name('semester')->middleware('admin');
 
-//Courses
+// Studios
 Route::get('admin/studios/{studio:id}', [StudiosController::class, 'index_courses'])->name('studio')->middleware('admin');
 
+// Courses
+Route::get('admin/courses/{course:id}', [CoursesController::class, 'index'])->name('course')->middleware('admin');
+
+// Semester Calendar
+Route::get('admin/calendar', [SemestersCalendarController::class, 'index'])->name('calendar')->middleware('admin');
+Route::get('admin/calendar/{semester:id}', [SemestersCalendarController::class, 'calendar'])->name('semester_calendar')->middleware('admin');
 require __DIR__.'/auth.php';

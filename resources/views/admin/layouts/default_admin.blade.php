@@ -6,7 +6,7 @@
     NProgress.configure({ showSpinner: false });
     NProgress.start();
 </script>
-<div id="toaster"></div>
+{{--<div id="toaster"></div>--}}
 
 <div class="wrapper">
     @include('admin.head.navigation')
@@ -53,6 +53,7 @@
 <script src="{{asset('assets/admin/plugins/toaster/toastr.min.js')}}"></script>
 <script src="{{asset('assets/admin/js/mono.js')}}"></script>
 <script src="{{asset('assets/admin/js/chart.js')}}"></script>
+<script src="{{asset('assets/admin/plugins/select2/js/select2.min.js')}}"></script>
 <script src="{{asset('assets/admin/js/map.js')}}"></script>
 <script src="{{asset('assets/admin/js/custom.js')}}"></script>
 

@@ -16,8 +16,11 @@ class MustBeAdministrator
      */
     public function handle(Request $request, Closure $next)
     {
+        if (auth()->user() == null) {
+            return redirect()->route('home')->with('error', 'No permissions to view this page.');
+        }
         if (auth()->user()->role != 'Admin') {
-            return redirect()->route('home');
+            return redirect()->route('home')->with('error', 'No permissions to view this page.');
         }
         return $next($request);
     }

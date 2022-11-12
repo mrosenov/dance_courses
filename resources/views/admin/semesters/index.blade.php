@@ -13,7 +13,7 @@
         </div>
 
         <div class="card-body">
-            <table class="table table-bordered table-striped mb-5" style="text-align: center;">
+            <table class="table table-bordered table-striped table-hover mb-5" style="text-align: center;">
                 <thead>
                 <tr>
                     <th scope="col" colspan="4">Semester Information</th>
@@ -52,7 +52,7 @@
 
             <hr>
             <a href="#" class="btn btn-sm btn-success mb-2">Add new semester</a>
-            <table class="table table-striped table-bordered" style="text-align: center;">
+            <table class="table table-striped table-bordered mb-2" style="text-align: center;">
                 <thead>
                     <tr>
                         <th scope="col" colspan="6">List of semesters</th>
@@ -68,13 +68,16 @@
                 </thead>
                 <tbody>
                 @foreach($semesters as $semester)
-                    <tr>
+                    <tr class="{{($current->id == $semester->id) ? 'table-success' : ''}}">
                         <td scope="row" style="vertical-align: middle">{{$semester->id}}</td>
                         <td style="vertical-align: middle"><a href="{{route('semester', $semester->id)}}">{{$semester->name}}</a></td>
                         <td style="vertical-align: middle">{{$semester->semester_start}}</td>
                         <td style="vertical-align: middle">{{$semester->semester_end}}</td>
                         <td style="vertical-align: middle">{{$semester->active ? 'Active' : 'Not Active'}} </td>
                         <th class="text-center">
+                            <a href="{{route('semester', $semester->id)}}" class="btn btn-sm btn-outline-smoke">
+                                <i class="fa-duotone fa-building"></i>
+                            </a>
                             <a href="{{route('semester', $semester->id)}}" class="btn btn-sm btn-outline-smoke">
                                 <i class="fa-duotone fa-pen-to-square"></i>
                             </a>
@@ -87,7 +90,9 @@
                 @endforeach
                 </tbody>
             </table>
+            {{$semesters->links()}}
         </div>
+
     </div>
 
 @endsection

@@ -40,7 +40,7 @@
                 @foreach($courses as $course)
                     <tr>
                         <td scope="row" style="vertical-align: middle">{{$course->id}}</td>
-                        <td style="vertical-align: middle"><a href="#">{{$course->name}}</a></td>
+                        <td style="vertical-align: middle"><a href="{{route('course', $course->id)}}">{{$course->name}}</a></td>
                         <td style="vertical-align: middle"><a href="#">{{$course->DanceStyle->name}}</a></td>
                         <td style="vertical-align: middle"><a href="#">{{$course->Teacher->UserInfo->name}}</a></td>
                         <td style="vertical-align: middle"><a href="#">{{$course->AgeGroup->name}}</a></td>
@@ -52,6 +52,9 @@
                         <td style="vertical-align: middle">{{$course->weekday}}</td>
                         <td style="vertical-align: middle">{{ $course->active ? 'Active' : 'Not Active' }}</td>
                         <th class="text-center" style="vertical-align: middle">
+                            <a href="{{route('course', $course->id)}}" class="btn btn-sm btn-outline-smoke">
+                                <i class="fa-duotone fa-screen-users"></i>
+                            </a>
                             <a href="#" class="btn btn-sm btn-outline-smoke">
                                 <i class="fa-duotone fa-pen-to-square"></i>
                             </a>

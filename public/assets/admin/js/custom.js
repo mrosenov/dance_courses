@@ -347,11 +347,12 @@ $(document).ready(function() {
       "info": false,
       "lengthChange": false,
       "lengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]],
-      "scrollX": true,
-      "order": [[2, "asc"]],
+      "scrollX": false,
+      "autoWidth": true,
+      "order": [[2, "desc"]],
       "columnDefs": [{
         "orderable": false,
-        "targets": [, 0, 6, -1]
+        "targets": [6]
       }],
       "language": {
         "search": "_INPUT_",
@@ -489,5 +490,14 @@ $(document).ready(function() {
     })
   };
 
+    /*======== 16. PAGINATE CLASS ========*/
+    var paginate = $('.pagination');
+    paginate.addClass("pagination-seperated");
+
+    /*======== 17. MULTIPLE SELECT ========*/
+    var select2Single = $(".js-example-basic-single");
+    if (select2Single.length != 0){
+        select2Single.select2();
+    }
 });
 

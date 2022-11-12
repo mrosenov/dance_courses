@@ -11,7 +11,7 @@ class SemestersController extends Controller
     // Views
     public function index(SemestersModel $semesters) {
         return view('admin.semesters.index', [
-            'semesters' => $semesters::all(),
+            'semesters' => $semesters::orderBy("id", "desc")->paginate(10),
             'prev' => $this->PreviousSemester(),
             'current' => $this->CurrentSemester(),
             'next' => $this->NextSemester(),
@@ -28,12 +28,12 @@ class SemestersController extends Controller
     // Methods
     public function PreviousSemester() {
         $semester = new SemestersModel();
-        return $semester->where('semester_end', '<=', date("Y/m/d H:i:s"))->latest()->first();
+        return $semester->where('semester_end', '<=', date("Y/m/d H:i:s"))->where('active', 1)->latest()->first();
     }
 
     public function CurrentSemester() {
         $semester = new SemestersModel();
-        return $semester->where('semester_start', '<=', date("Y/m/d H:i:s"))->where('semester_end', '>=', date("Y/m/d H:i:s"))->first();
+        return $semester->where('semester_start', '<=', date("Y/m/d H:i:s"))->where('semester_end', '>=', date("Y/m/d H:i:s"))->where('active', 1)->first();
     }
 
     public function NextSemester() {
