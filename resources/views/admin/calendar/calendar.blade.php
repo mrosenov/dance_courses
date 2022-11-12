@@ -10,9 +10,19 @@
     </nav>
     <div class="card card-default">
         <div class="card-body">
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <select class="js-example-basic-multiple form-control" onchange="window.location.href=''+this.value">
+                        <option disabled selected>Choose Semester</option>
+                        @foreach($semesters as $semesterList)
+                            <option value="{{$semesterList->id}}" @if($semester->id == $semesterList->id) selected @endif>{{$semesterList->name}} {{ ($semesterList->id == $currentSemester->id) ? '[Current Semester]' : '' }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
             @foreach($studios as $studio)
-            <div class="row mb-2">
-                <table class="table table-striped table-bordered">
+            <div class="col-lg-12">
+                <table class="table table-striped table-bordered mt-1 mb-1">
                     <thead>
                     <tr>
                         <th colspan="5" style="text-align: center; vertical-align: middle;">{{$studio->name}}</th>
@@ -24,7 +34,7 @@
                     </tr>
                     </tbody>
                 </table>
-                <table class="table table-striped table-bordered" style="width: 20%; display: inline-table;">
+                <table class="table table-striped table-bordered" style="width: 300.2px; display: inline-table;">
                     <thead>
                     <tr>
                         <th colspan="5" style="text-align: center; vertical-align: middle;">Monday</th>
@@ -40,13 +50,14 @@
                                         <p class="text-dark font-weight-medium">Age Group: {{$course->Course->AgeGroup->name}}</p>
                                         <p class="text-dark font-weight-medium">Duration: {{$course->Course->course_start}} - {{$course->Course->course_end}}</p>
                                         <p class="text-dark font-weight-medium">Students: 1</p>
+                                        <a href="{{route('course', $course->Course->id)}}" class="btn btn-sm btn-success w-100">View Course</a>
                                     </td>
                                 </tr>
                             @endif
                         @endforeach
                     </tbody>
                 </table>
-                <table class="table table-striped table-bordered" style="width: 20%; display: inline-table;">
+                <table class="table table-striped table-bordered" style="width: 300.2px; display: inline-table;">
                     <thead>
                     <tr>
                         <th colspan="5" style="text-align: center; vertical-align: middle;">Tuesday</th>
@@ -62,13 +73,15 @@
                                     <p class="text-dark font-weight-medium">Age Group: {{$course->Course->AgeGroup->name}}</p>
                                     <p class="text-dark font-weight-medium">Duration: {{$course->Course->course_start}} - {{$course->Course->course_end}}</p>
                                     <p class="text-dark font-weight-medium">Students: 1</p>
+                                    <a href="{{route('course', $course->Course->id)}}" class="btn btn-sm btn-success w-100">View Course</a>
                                 </td>
+
                             </tr>
                         @endif
                     @endforeach
                     </tbody>
                 </table>
-                <table class="table table-striped table-bordered" style="width: 20%; display: inline-table;">
+                <table class="table table-striped table-bordered" style="width: 300.2px; display: inline-table;">
                     <thead>
                     <tr>
                         <th colspan="5" style="text-align: center; vertical-align: middle;">Wednesday</th>
@@ -84,13 +97,14 @@
                                     <p class="text-dark font-weight-medium">Age Group: {{$course->Course->AgeGroup->name}}</p>
                                     <p class="text-dark font-weight-medium">Duration: {{$course->Course->course_start}} - {{$course->Course->course_end}}</p>
                                     <p class="text-dark font-weight-medium">Students: 1</p>
+                                    <a href="{{route('course', $course->Course->id)}}" class="btn btn-sm btn-success w-100">View Course</a>
                                 </td>
                             </tr>
                         @endif
                     @endforeach
                     </tbody>
                 </table>
-                <table class="table table-striped table-bordered" style="width: 20%; display: inline-table;">
+                <table class="table table-striped table-bordered" style="width: 300.2px; display: inline-table;">
                     <thead>
                     <tr>
                         <th colspan="5" style="text-align: center; vertical-align: middle;">Thursday</th>
@@ -106,13 +120,14 @@
                                     <p class="text-dark font-weight-medium">Age Group: {{$course->Course->AgeGroup->name}}</p>
                                     <p class="text-dark font-weight-medium">Duration: {{$course->Course->course_start}} - {{$course->Course->course_end}}</p>
                                     <p class="text-dark font-weight-medium">Students: 1</p>
+                                    <a href="{{route('course', $course->Course->id)}}" class="btn btn-sm btn-success w-100">View Course</a>
                                 </td>
                             </tr>
                         @endif
                     @endforeach
                     </tbody>
                 </table>
-                <table class="table table-striped table-bordered" style="width: 20%; display: inline-table;">
+                <table class="table table-striped table-bordered" style="width: 286px; display: inline-table;">
                     <thead>
                     <tr>
                         <th colspan="5" style="text-align: center; vertical-align: middle;">Friday</th>
@@ -128,6 +143,7 @@
                                     <p class="text-dark font-weight-medium">Age Group: {{$course->Course->AgeGroup->name}}</p>
                                     <p class="text-dark font-weight-medium">Duration: {{$course->Course->course_start}} - {{$course->Course->course_end}}</p>
                                     <p class="text-dark font-weight-medium">Students: 1</p>
+                                    <a href="{{route('course', $course->Course->id)}}" class="btn btn-sm btn-success w-100">View Course</a>
                                 </td>
                             </tr>
                         @endif

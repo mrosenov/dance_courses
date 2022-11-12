@@ -30,7 +30,7 @@
                     <td style="text-align: center; vertical-align: middle;">{{$student->id}}</td>
                     <td style="text-align: center; vertical-align: middle;">{{$student->name}}</td>
                     <td style="text-align: center; vertical-align: middle;">{{$student->email}}</td>
-                    <td style="text-align: center; vertical-align: middle;">{{$AgeGroup::StudentAge($student->birthday)}}</td>
+                    <td style="text-align: center; vertical-align: middle;">{{$AgeGroup->StudentAge($student->birthday)}}</td>
                     <td style="text-align: center; vertical-align: middle;">{{$student->role}}</td>
                     <td style="text-align: center; vertical-align: middle;">{{$student->updated_at}}</td>
                     <td style="text-align: center; vertical-align: middle;">

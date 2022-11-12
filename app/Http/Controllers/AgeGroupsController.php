@@ -9,7 +9,7 @@ use Illuminate\Support\Carbon;
 class AgeGroupsController extends Controller
 {
     // Methods
-    public static function StudentAge($birthday) {
+    public function StudentAge($birthday) {
         return Carbon::parse($birthday)->age;
     }
 }

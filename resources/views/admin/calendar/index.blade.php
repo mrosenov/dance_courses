@@ -10,9 +10,9 @@
         <div class="card-body">
             <div class="form-group">
                 <select class="js-example-basic-single form-control" onchange="window.location.href='calendar/'+this.value">
-                    <option disabled selected>None</option>
+                    <option disabled selected>Choose Semester</option>
                     @foreach($semesters as $semester)
-                        <option value="{{$semester->id}}">{{$semester->name}}</option>
+                        <option value="{{$semester->id}}">{{$semester->name}} {{ ($semester->id == $currentSemester->id) ? '[Current Semester]' : '' }}</option>
                     @endforeach
                 </select>
             </div>

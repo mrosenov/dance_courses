@@ -494,7 +494,7 @@ $(document).ready(function() {
     var paginate = $('.pagination');
     paginate.addClass("pagination-seperated");
 
-    /*======== 17. MULTIPLE SELECT ========*/
+    /*======== 17. Single SELECT ========*/
     var select2Single = $(".js-example-basic-single");
     if (select2Single.length != 0){
         select2Single.select2();

@@ -13,7 +13,7 @@ class DashboardController extends Controller
 {
     public function index(User $users)
     {
-        $AgeGroup = AgeGroupsController::class;
+        $AgeGroup = (new AgeGroupsController);
         return view('admin.index', [
             'users' => $users->get(),
             'AgeGroup' => $AgeGroup,
