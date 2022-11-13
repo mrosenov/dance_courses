@@ -35,6 +35,43 @@
                         <span class="nav-text">Semester Calendar</span>
                     </a>
                 </li>
+                <li class="has-sub {{Route::currentRouteNamed(['users']) ?  'active' : ''}} {{Route::currentRouteNamed(['users']) ?  'expand' : ''}}">
+                    <a class="sidenav-item-link {{Route::currentRouteNamed(['users']) ?  '' : 'collapsed'}}" href="javascript:void(0)" data-toggle="collapse" data-target="#users" aria-expanded="{{Route::currentRouteNamed(['semesters']) ?  'true' : 'false'}}">
+                        <i class="fa-duotone fa-book"></i>
+                        <span class="nav-text">Users</span> <b class="caret"></b>
+                    </a>
+                    <ul class="collapse {{Route::currentRouteNamed(['users','teachers','students']) ?  'show' : ''}}" id="users" data-parent="#sidebar-menu" style="">
+                        <div class="sub-menu">
+                            <li class="{{Route::currentRouteNamed(['users']) ?  'active' : ''}}">
+                                <a class="sidenav-item-link" href="{{route('users')}}">
+                                    <span class="nav-text">List of all users</span>
+                                </a>
+                            </li>
+                            <li class="{{Route::currentRouteNamed(['teachers']) ?  'active' : ''}}">
+                                <a class="sidenav-item-link" href="{{route('teachers')}}">
+                                    <span class="nav-text">List of all teachers</span>
+                                </a>
+                            </li>
+                            <li class="{{Route::currentRouteNamed(['students']) ?  'active' : ''}}">
+                                <a class="sidenav-item-link" href="{{route('students')}}">
+                                    <span class="nav-text">List of all students</span>
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                </li>
+                <li class="{{Route::currentRouteNamed(['age-groups']) ?  'active' : ''}}">
+                    <a class="sidenav-item-link" href="{{route('age-groups')}}">
+                        <i class="fa-duotone fa-people-group"></i>
+                        <span class="nav-text">Age Groups</span>
+                    </a>
+                </li>
+                <li class="{{Route::currentRouteNamed(['dance-styles']) ?  'active' : ''}}">
+                    <a class="sidenav-item-link" href="{{route('dance-styles')}}">
+                        <i class="fa-duotone fa-list-music"></i>
+                        <span class="nav-text">Dance Styles</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
