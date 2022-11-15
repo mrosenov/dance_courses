@@ -71,6 +71,9 @@ Route::group(['middleware' => ['auth']], function() {
     // Holidays
     Route::get('admin/holidays', [DashboardController::class, 'index_Holidays'])->name('holidays')->middleware('admin');
     Route::get('admin/holidays/semester/{semester:id}', [DashboardController::class, 'index_HolidaysSemester'])->name('holidays-semester')->middleware('admin');
+
+    // Settings
+    Route::get('admin/settings', [DashboardController::class, 'index_Settings'])->name('settings')->middleware('admin');
 });
 
 require __DIR__.'/auth.php';

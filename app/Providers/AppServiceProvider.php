@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\SiteSettingsModels;
+use App\Http\Controllers\SiteSettingsController;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
@@ -27,5 +29,10 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useBootstrap();
         Schema::defaultStringLength(191);
+
+        view()->composer('*',function($view) {
+            $settings = (new SiteSettingsController);
+            $view->with('settings', $settings->getSiteSettings());
+        });
     }
 }

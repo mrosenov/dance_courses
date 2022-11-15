@@ -89,11 +89,6 @@
                                     <span class="nav-text">List of all posts</span>
                                 </a>
                             </li>
-                            <li class="{{Route::currentRouteNamed(['']) ?  'active' : ''}}">
-                                <a class="sidenav-item-link" href="{{route('students')}}">
-                                    <span class="nav-text">List of all comments</span>
-                                </a>
-                            </li>
                         </div>
                     </ul>
                 </li>
@@ -101,6 +96,12 @@
                     <a class="sidenav-item-link" href="{{route('holidays')}}">
                         <i class="fa-duotone fa-lights-holiday"></i>
                         <span class="nav-text">Holidays</span>
+                    </a>
+                </li>
+                <li class="{{Route::currentRouteNamed(['settings']) ?  'active' : ''}}">
+                    <a class="sidenav-item-link" href="{{route('settings')}}">
+                        <i class="fa-duotone fa-gears"></i>
+                        <span class="nav-text">Site Settings</span>
                     </a>
                 </li>
 

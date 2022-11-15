@@ -8,6 +8,7 @@ use App\Models\SemestersModel;
 use App\Models\User;
 use Illuminate\Http\Request;
 use \App\Http\Controllers\SemestersController;
+use Monarobase\CountryList\CountryListFacade;
 
 class DashboardController extends Controller
 {
@@ -83,6 +84,14 @@ class DashboardController extends Controller
         $Semesters = (new SemestersController);
         return view('admin.holidays.semester', [
             'semester' => $Semesters->getSemesterByID($id),
+        ]);
+    }
+
+    public function index_Settings() {
+        $countries = CountryListFacade::getList('en');
+        return view('admin.settings.index', [
+            'countries' => $countries,
+
         ]);
     }
 

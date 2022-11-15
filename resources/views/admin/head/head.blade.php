@@ -3,7 +3,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{config('app.name')}}</title>
+    <title>{{ $settings->name }}</title>
 
     <!-- GOOGLE FONTS -->
     <link href="{{asset('assets/admin/css/css?family=Karla:400,700|Roboto')}}" rel="stylesheet">
