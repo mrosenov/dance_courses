@@ -37,7 +37,7 @@
                 </li>
                 <li class="has-sub {{Route::currentRouteNamed(['users']) ?  'active' : ''}} {{Route::currentRouteNamed(['users']) ?  'expand' : ''}}">
                     <a class="sidenav-item-link {{Route::currentRouteNamed(['users']) ?  '' : 'collapsed'}}" href="javascript:void(0)" data-toggle="collapse" data-target="#users" aria-expanded="{{Route::currentRouteNamed(['semesters']) ?  'true' : 'false'}}">
-                        <i class="fa-duotone fa-book"></i>
+                        <i class="fa-duotone fa-users"></i>
                         <span class="nav-text">Users</span> <b class="caret"></b>
                     </a>
                     <ul class="collapse {{Route::currentRouteNamed(['users','teachers','students']) ?  'show' : ''}}" id="users" data-parent="#sidebar-menu" style="">
@@ -62,7 +62,7 @@
                 </li>
                 <li class="{{Route::currentRouteNamed(['age-groups']) ?  'active' : ''}}">
                     <a class="sidenav-item-link" href="{{route('age-groups')}}">
-                        <i class="fa-duotone fa-people-group"></i>
+                        <i class="fa-duotone fa-child-reaching"></i>
                         <span class="nav-text">Age Groups</span>
                     </a>
                 </li>
@@ -72,6 +72,38 @@
                         <span class="nav-text">Dance Styles</span>
                     </a>
                 </li>
+                <li class="has-sub {{Route::currentRouteNamed(['blog-category','blog-posts']) ?  'active' : ''}} {{Route::currentRouteNamed(['users']) ?  'expand' : ''}}">
+                    <a class="sidenav-item-link {{Route::currentRouteNamed(['blog-category']) ?  '' : 'collapsed'}}" href="javascript:void(0)" data-toggle="collapse" data-target="#blogs" aria-expanded="{{Route::currentRouteNamed(['semesters']) ?  'true' : 'false'}}">
+                        <i class="fa-brands fa-blogger"></i>
+                        <span class="nav-text">Blogs</span> <b class="caret"></b>
+                    </a>
+                    <ul class="collapse {{Route::currentRouteNamed(['blog-category','blog-posts']) ?  'show' : ''}}" id="blogs" data-parent="#sidebar-menu" style="">
+                        <div class="sub-menu">
+                            <li class="{{Route::currentRouteNamed(['blog-category']) ?  'active' : ''}}">
+                                <a class="sidenav-item-link" href="{{route('blog-category')}}">
+                                    <span class="nav-text">List of all categories</span>
+                                </a>
+                            </li>
+                            <li class="{{Route::currentRouteNamed(['blog-posts']) ?  'active' : ''}}">
+                                <a class="sidenav-item-link" href="{{route('blog-posts')}}">
+                                    <span class="nav-text">List of all posts</span>
+                                </a>
+                            </li>
+                            <li class="{{Route::currentRouteNamed(['']) ?  'active' : ''}}">
+                                <a class="sidenav-item-link" href="{{route('students')}}">
+                                    <span class="nav-text">List of all comments</span>
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                </li>
+                <li class="{{Route::currentRouteNamed(['holidays','holidays-semester']) ?  'active' : ''}}">
+                    <a class="sidenav-item-link" href="{{route('holidays')}}">
+                        <i class="fa-duotone fa-lights-holiday"></i>
+                        <span class="nav-text">Holidays</span>
+                    </a>
+                </li>
+
             </ul>
         </div>
     </div>

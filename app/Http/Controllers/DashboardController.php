@@ -57,6 +57,35 @@ class DashboardController extends Controller
         ]);
     }
 
+    public function index_BlogCategory() {
+        $BlogCategories = (new BlogCategoriesController);
+        return view('admin.blog.category.index', [
+            'categories' => $BlogCategories->getCategoriesList(),
+        ]);
+    }
+
+    public function index_BlogPosts() {
+        $BlogPosts = (new BlogPostsController);
+        return view('admin.blog.posts.index', [
+            'posts' => $BlogPosts->getBlogPostsList(),
+        ]);
+    }
+
+    public function index_Holidays() {
+        $Semesters = (new SemestersController);
+        return view('admin.holidays.index', [
+            'semesters' => $Semesters->getSemestersList(),
+            'currentSemester' => $Semesters->CurrentSemester(),
+        ]);
+    }
+
+    public function index_HolidaysSemester($id) {
+        $Semesters = (new SemestersController);
+        return view('admin.holidays.semester', [
+            'semester' => $Semesters->getSemesterByID($id),
+        ]);
+    }
+
     // Methods
     public function getUserList() {
         $users = User::all();

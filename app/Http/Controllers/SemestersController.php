@@ -41,4 +41,14 @@ class SemestersController extends Controller
         return $semester->where('semester_start', '>=', date("Y/m/d H:i:s"))->where('semester_end', '>=', date("Y/m/d H:i:s"))->where('active', 1)->latest()->first();
     }
 
+    public function getSemesterByID($semesterID) {
+        $semester = SemestersModel::find($semesterID);
+        return $semester;
+    }
+
+    public function getSemestersList() {
+        $semesters = SemestersModel::get();
+        return $semesters;
+    }
+
 }

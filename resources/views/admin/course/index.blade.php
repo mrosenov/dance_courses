@@ -54,9 +54,9 @@
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
                     <th class="text-center">Age</th>
-                    <th class="text-center">Role</th>
                     <th class="text-center">Order ID</th>
                     <th class="text-center">Payment Method</th>
+                    <th class="text-center">Paid</th>
                     <th class="text-center">Actions</th>
                 </tr>
                 </thead>
@@ -66,9 +66,14 @@
                     <td style="vertical-align: middle;">Mitko Rosenov</td>
                     <td style="vertical-align: middle;">mitkorosenov@live.com</td>
                     <td style="vertical-align: middle;">24</td>
-                    <td style="vertical-align: middle;">Admin</td>
                     <td style="vertical-align: middle;">1</td>
                     <td style="vertical-align: middle;">PayPal</td>
+                    <td style="vertical-align: middle;">
+                        <div class="custom-control custom-checkbox d-inline-block">
+                            <input type="checkbox" class="custom-control-input" id="isPaid" checked="checked">
+                            <label class="custom-control-label" for="isPaid">Paid</label>
+                        </div>
+                    </td>
                     <td class="text-center">
                         <a href="#" class="btn btn-sm btn-outline-smoke">
                             <i class="fa-duotone fa-pen-to-square"></i>

@@ -19,4 +19,8 @@ class SemestersModel extends Model
     public function Studios() {
         return $this->hasMany(StudiosModel::class, 'semester', 'id');
     }
+
+    public function Holidays() {
+        return $this->hasMany(SemestersHolidaysModel::class, 'semester', 'id');
+    }
 }
