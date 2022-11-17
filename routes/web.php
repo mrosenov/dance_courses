@@ -8,6 +8,7 @@ use \App\Http\Controllers\SemestersController;
 use \App\Http\Controllers\StudiosController;
 use \App\Http\Controllers\CoursesController;
 use \App\Http\Controllers\SemestersCalendarController;
+use \App\Http\Controllers\BannersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,10 @@ use \App\Http\Controllers\SemestersCalendarController;
 */
 
 Route::get('/', function () {
-    return view('index');
+    $banner = \App\Models\BannersModel::latest('created_at')->where('active', 1)->first();
+    return view('index', [
+        'banner' => $banner,
+    ]);
 })->name('home');
 
 Route::get('/dashboard', function () {
@@ -74,6 +78,11 @@ Route::group(['middleware' => ['auth']], function() {
 
     // Settings
     Route::get('admin/settings', [DashboardController::class, 'index_Settings'])->name('settings')->middleware('admin');
+
+    // Banners
+    Route::get('admin/banners', [DashboardController::class, 'index_Banners'])->name('banners')->middleware('admin');
+    Route::get('admin/banners/add', [DashboardController::class, 'add_form_Banners'])->name('add-banner')->middleware('admin');
+    Route::post('admin/banners/add', [BannersController::class, 'store'])->name('store-banner');
 });
 
 require __DIR__.'/auth.php';

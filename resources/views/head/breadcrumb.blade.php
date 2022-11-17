@@ -4,13 +4,13 @@
             <div class="col-lg-12">
                 <div class="breadcrumb-inner text-start">
                     <div class="page-title">
-                        <h3 class="title">Login & Register</h3>
+                        <h3 class="title" style="text-transform: capitalize">{{Route::currentRouteName()}}</h3>
                     </div>
-                    <nav class="edu-breadcrumb-nav">
+                    <nav class="edu-breadcrumb-nav" style="text-transform: capitalize">
                         <ol class="edu-breadcrumb d-flex justify-content-start liststyle">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                             <li class="separator"><i class="ri-arrow-drop-right-line"></i></li>
-                            <li class="breadcrumb-item active" aria-current="page">Login & Register</li>
+                            <li class="breadcrumb-item active" aria-current="page">{{Route::currentRouteName()}}</li>
                         </ol>
                     </nav>
                 </div>

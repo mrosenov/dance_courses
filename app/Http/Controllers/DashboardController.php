@@ -95,6 +95,17 @@ class DashboardController extends Controller
         ]);
     }
 
+    public function index_Banners() {
+        $banners = (new BannersController);
+        return view('admin.banners.index', [
+            'banners' => $banners->getBannersList(),
+        ]);
+    }
+
+    public function add_form_Banners() {
+        return view('admin.banners.add_form');
+    }
+
     // Methods
     public function getUserList() {
         $users = User::all();
