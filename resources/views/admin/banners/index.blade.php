@@ -29,7 +29,7 @@
                         <td style="vertical-align: middle; text-align: center;">{{ $banner->id }}</td>
                         <td style="vertical-align: middle; text-align: center;"><a href="#">{{ $banner->name }}</a></td>
                         <td style="vertical-align: middle; text-align: center;">{{ $banner->short_description }}</td>
-                        <td style="vertical-align: middle; text-align: center;">{{ $banner->active_from }} - {{ $banner->active_to }}</td>
+                        <td style="vertical-align: middle; text-align: center;">{{ $banner->active_from }} <br>-<br> {{ $banner->active_to }}</td>
                         <td class="text-center">
                             <a href="#" class="btn btn-sm btn-outline-smoke">
                                 <i class="fa-duotone fa-pen-to-square"></i>

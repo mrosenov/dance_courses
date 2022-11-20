@@ -1,27 +1,26 @@
 @extends('layouts.default')
 
+<!-- Start Sldier Area  -->
 @section('index_slider')
-    <!-- Start Sldier Area  -->
-        <div class="slider-area banner-style-2 bg-image d-flex align-items-center">
-            <div class="owl-carousel">
-                @foreach($banners as $banner)
-                <div>
-                    <a href="{{$banner->url}}"><img src="{{asset('storage/' . $banner->file_name)}}"></a>
-                    <div class="slide_caption">
-                        <div class="container">
-                            <h2>{{$banner->title}}</h2>
-                            <div class="slide_text">
-                                <p>{{$banner->short_description}}</p>
-                            </div>
+    @if($banners)
+    <div class="owl-carousel">
+        @foreach($banners as $banner)
+            <div>
+                <a href="{{$banner->url}}"><img src="{{asset('storage/' . $banner->file_name)}}"></a>
+                <div class="slide_caption">
+                    <div class="container">
+                        <h2 class="banner_title">{{$banner->title}}</h2>
+                        <div class="slide_text">
+                            <p class="banner_text">{{$banner->short_description}}</p>
                         </div>
                     </div>
                 </div>
-                @endforeach
             </div>
-        </div>
-    <!-- End Sldier Area  -->
+        @endforeach
+    </div>
+    @endif
 @endsection
-
+<!-- End Sldier Area  -->
 
 @section('index_posts')
     <!-- Start Blog Area  -->

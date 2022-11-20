@@ -16882,30 +16882,31 @@ Gallery Item
     color: #fff;
 }
 
-.slide_caption h2 {
+.slide_caption .banner_title {
+    color: #fff;
     flex-shrink: 0;
     width: 50%;
     border-right: 3px solid #fff;
     margin: 0;
     margin-right: 25px;
     padding-right: 25px;
-    font-size: 45px;
+    font-size: 35px;
     line-height: 110%;
     font-weight: 800;
     text-align: right;
 }
 
-.paragraphs p:last-child, .slide_text p:last-child {
+.slide_text p:last-child {
     margin-bottom: 0;
 }
 
-.paragraphs p:first-child, .slide_text p:first-child {
+.slide_text p:first-child {
     margin-top: 0;
 }
 
-.slide_text {
+.banner_text {
     flex-shrink: 0;
-    width: calc(50% - 25px);
+    width: calc(80% - 25px);
     display: flex;
     align-items: center;
     color: #fff;

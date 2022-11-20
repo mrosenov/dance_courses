@@ -18,10 +18,6 @@
                     <input name="name" type="text" class="form-control" id="BannerName" placeholder="Name">
                 </div>
                 <div class="form-group">
-                    <label for="BannerTopTitle">Top Title</label>
-                    <input name="top_title" type="text" class="form-control" id="BannerTopTitle" placeholder="Top Title">
-                </div>
-                <div class="form-group">
                     <label for="BannerTitle">Title</label>
                     <input name="title" type="text" class="form-control" id="BannerTitle" placeholder="Title">
                 </div>
@@ -49,8 +45,8 @@
                     <input name="active_to" type="datetime-local" class="form-control" data-mask="00/00/0000">
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlFile1">Image</label>
-                    <input name="file" type="file" class="form-control-file" id="exampleFormControlFile1">
+                    <label for="banner_image">Image</label>
+                    <input name="image" type="file" class="form-control-file" id="banner_image">
                 </div>
                 <div class="custom-control custom-checkbox d-inline-block">
                     <input name="active" type="checkbox" class="custom-control-input" id="BannerActive" value="1">
