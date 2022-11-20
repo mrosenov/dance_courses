@@ -41,6 +41,34 @@
 <script src="{{asset('assets/js/vendor/tilt.jquery.min.js')}}"></script>
 <!-- Main JS -->
 <script src="{{asset('assets/js/main.js')}}"></script>
+<script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
+<script>
+    $('.owl-carousel').owlCarousel({
+        center: true,
+        autoplay:true,
+        autoplayTimeout:4000,
+        autoplayHoverPause:false,
+        autoWidth:true,
+        responsiveClass: true,
+        responsive: {
+            0: {
+                items: 1,
+                nav: true
+            },
+            600: {
+                items: 3,
+                nav: false
+            },
+            1000: {
+                items: 5,
+                nav: true,
+                loop: true,
+                margin: 0
+            }
+        }
+    })
+
+</script>
 </body>
 
 </html>

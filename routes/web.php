@@ -22,9 +22,9 @@ use \App\Http\Controllers\BannersController;
 */
 
 Route::get('/', function () {
-    $banner = \App\Models\BannersModel::latest('created_at')->where('active', 1)->first();
+    $banners = (new BannersController);
     return view('index', [
-        'banner' => $banner,
+        'banners' => $banners->getBanners(),
     ]);
 })->name('home');
 

@@ -2,49 +2,23 @@
 
 @section('index_slider')
     <!-- Start Sldier Area  -->
-    <div class="slider-area banner-style-2 bg-image d-flex align-items-center">
-        <div class="container">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-6 col-md-12">
-                    <div class="inner">
-                        <div class="content">
-                            <span class="pre-title" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">{{$banner->top_title}}</span>
-                            <h1 class="title" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
-                                {{$banner->title}}
-                            </h1>
-                            <p class="description" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
-                                {{$banner->short_description}}
-                            </p>
-                            <div class="read-more-btn" data-sal-delay="300" data-sal="slide-up" data-sal-duration="800">
-                                <a class="edu-btn" href="{{$banner->url}}">Get Started Today <i class="icon-arrow-right-line-right"></i></a>
-                            </div>
-                            <div class="arrow-sign d-lg-block d-none">
-                                <img src="assets/images/banner/banner-02/arrow.png" alt="Banner Images" data-sal-delay="150" data-sal="fade" data-sal-duration="800">
+        <div class="slider-area banner-style-2 bg-image d-flex align-items-center">
+            <div class="owl-carousel">
+                @foreach($banners as $banner)
+                <div>
+                    <a href="{{$banner->url}}"><img src="{{asset('storage/' . $banner->file_name)}}"></a>
+                    <div class="slide_caption">
+                        <div class="container">
+                            <h2>{{$banner->title}}</h2>
+                            <div class="slide_text">
+                                <p>{{$banner->short_description}}</p>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-5">
-                    <div class="banner-bg d-lg-block d-none">
-                        <img class="girl-bg" src="{{asset('storage/' . $banner->file_name)}}" alt="Girl Background" data-sal-delay="150" data-sal="fade" data-sal-duration="800" />
-                    </div>
-                </div>
-            </div>
-
-            <div class="shape-dot-wrapper shape-wrapper d-xl-block d-none">
-                <div class="shape-image shape-image-1">
-                    <img src="assets/images/shapes/shape-19.png" alt="Shape Thumb" />
-                </div>
-                <div class="shape-image shape-image-2">
-                    <img src="assets/images/shapes/shape-05-01.png" alt="Shape Thumb" />
-                </div>
-                <div class="shape-image shape-image-3">
-                    <img src="assets/images/shapes/shape-19-01.png" alt="Shape Thumb" />
-                </div>
+                @endforeach
             </div>
         </div>
-    </div>
     <!-- End Sldier Area  -->
 @endsection
 

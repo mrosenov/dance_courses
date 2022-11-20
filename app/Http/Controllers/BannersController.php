@@ -8,9 +8,21 @@ use Illuminate\Support\Facades\Redirect;
 
 class BannersController extends Controller
 {
+    public function getBanners() {
+        $banners = BannersModel::get()->where('active_from', '<=', date("Y-m-d H:i:s"))->where('active_to', '>=',date("Y-m-d H:i:s"))->where('active', 1);
+
+        return $banners;
+    }
+
+    public function getBannersList() {
+        $banners = BannersModel::get();
+
+        return $banners;
+    }
+
     public function store(Request $request) {
         $request->validate([
-            'file' => 'required|mimes:csv,txt,xlx,xls,pdf,png|max:2048'
+            'file' => 'required|mimes:csv,txt,xlx,xls,pdf,png,jpg,jpeg|max:2048'
         ]);
 
         $banner = new BannersModel();
@@ -30,10 +42,5 @@ class BannersController extends Controller
 
         $banner->save();
         return redirect::back()->with('success','Banner have been successfully created.');
-    }
-
-    public function getBannersList() {
-        $banners = BannersModel::get();
-        return $banners;
     }
 }
