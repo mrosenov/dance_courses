@@ -15,15 +15,15 @@
                 @csrf
                 <div class="form-group">
                     <label for="BannerName">Name</label>
-                    <input name="name" type="text" class="form-control" id="BannerName" placeholder="Name">
+                    <input name="name" type="text" class="form-control" id="BannerName" placeholder="Name" required>
                 </div>
                 <div class="form-group">
                     <label for="BannerTitle">Title</label>
-                    <input name="title" type="text" class="form-control" id="BannerTitle" placeholder="Title">
+                    <input name="title" type="text" class="form-control" id="BannerTitle" placeholder="Title" required>
                 </div>
                 <div class="form-group">
                     <label for="BannerDescription">Short Description</label>
-                    <textarea name="short_description" class="form-control" id="BannerDescription" rows="3"></textarea>
+                    <textarea name="short_description" class="form-control" id="BannerDescription" rows="3" required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="BannerURL">URL</label>
@@ -35,14 +35,14 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text mdi mdi-calendar" id="BannerActiveFor"></span>
                     </div>
-                    <input name="active_from" type="datetime-local" class="form-control" data-mask="00/00/0000">
+                    <input name="active_from" type="datetime-local" class="form-control" data-mask="00/00/0000" required>
                 </div>
                 <label class="text-dark font-weight-medium" for="BannerActiveTo">Active To</label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text mdi mdi-calendar" id="BannerActiveTo"></span>
                     </div>
-                    <input name="active_to" type="datetime-local" class="form-control" data-mask="00/00/0000">
+                    <input name="active_to" type="datetime-local" class="form-control" data-mask="00/00/0000" required>
                 </div>
                 <div class="form-group">
                     <label for="banner_image">Image</label>
