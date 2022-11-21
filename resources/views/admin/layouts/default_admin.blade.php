@@ -14,6 +14,7 @@
         @include('admin.head.header')
         <div class="content-wrapper">
             <div class="content">
+                @include('alerts')
                 @yield('section')
             </div>
         </div>

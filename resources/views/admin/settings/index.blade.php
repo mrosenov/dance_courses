@@ -10,15 +10,17 @@
 
     <div class="card card-default">
         <div class="card-body">
-            <form>
+            <form method="POST" action="{{route('update-site')}}">
+                @csrf
+                @method('PATCH')
                 <div class="form-group">
                     <label for="SiteName">Site name</label>
-                    <input type="text" name="sitename" class="form-control rounded-0" id="SiteName" placeholder="Site Name" value="{{ $settings->name }}">
+                    <input type="text" name="sitename" class="form-control rounded-0" id="SiteName" placeholder="Site Name" value="{{ $settings->name }}" required>
                 </div>
 
                 <div class="form-group">
                     <label for="SiteCountry">Country</label>
-                    <select name="country" class="form-control rounded-0" id="SiteCountry">
+                    <select name="country" class="form-control rounded-0" id="SiteCountry" required>
                         @foreach($countries as $country)
                             <option value="{{$country}}" @if($country === $settings->country) selected @endif>{{$country}}</option>
                         @endforeach
@@ -27,27 +29,27 @@
 
                 <div class="form-group">
                     <label for="SiteTown">Town</label>
-                    <input type="text" name="sitetown" class="form-control rounded-0" id="SiteTown" placeholder="Site Town" value="{{ $settings->town }}">
+                    <input type="text" name="sitetown" class="form-control rounded-0" id="SiteTown" placeholder="Site Town" value="{{ $settings->town }}" required>
                 </div>
 
                 <div class="form-group">
                     <label for="SitePostCode">Post Code</label>
-                    <input type="text" name="sitepostcode" class="form-control rounded-0" id="SitePostCode" placeholder="Post Code" value="{{ $settings->postcode }}">
+                    <input type="text" name="sitepostcode" class="form-control rounded-0" id="SitePostCode" placeholder="Post Code" value="{{ $settings->postcode }}" required>
                 </div>
 
                 <div class="form-group">
                     <label for="SiteAddress">Address</label>
-                    <input type="text" name="siteaddress" class="form-control rounded-0" id="SiteAddress" placeholder="Address" value="{{ $settings->address }}">
+                    <input type="text" name="siteaddress" class="form-control rounded-0" id="SiteAddress" placeholder="Address" value="{{ $settings->address }}" required>
                 </div>
 
                 <div class="form-group">
                     <label for="SiteEmail">Email</label>
-                    <input type="text" name="siteemail" class="form-control rounded-0" id="SiteEmail" placeholder="Site Email" value="{{ $settings->email }}">
+                    <input type="text" name="siteemail" class="form-control rounded-0" id="SiteEmail" placeholder="Site Email" value="{{ $settings->email }}" required>
                 </div>
 
                 <div class="form-group">
                     <label for="SiteVAT">VAT ID</label>
-                    <input type="text" name="sitevatid" class="form-control rounded-0" id="SiteVAT" placeholder="Site Vat ID" value="{{ $settings->VATNumber }}">
+                    <input type="text" name="sitevatid" class="form-control rounded-0" id="SiteVAT" placeholder="Site Vat ID" value="{{ $settings->VATNumber }}" required>
                 </div>
 
                 <div class="input-group mb-3">

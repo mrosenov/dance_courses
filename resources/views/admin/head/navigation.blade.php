@@ -98,7 +98,7 @@
                         <span class="nav-text">Holidays</span>
                     </a>
                 </li>
-                <li class="{{Route::currentRouteNamed(['banners','add-banner']) ?  'active' : ''}}">
+                <li class="{{Route::currentRouteNamed(['banners','add-banner','edit-banner-form']) ?  'active' : ''}}">
                     <a class="sidenav-item-link" href="{{route('banners')}}">
                         <i class="fa-duotone fa-image"></i>
                         <span class="nav-text">Banners</span>

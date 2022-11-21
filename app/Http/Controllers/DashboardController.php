@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Controllers\AgeGroupsController;
+use App\Models\BannersModel;
 use App\Models\SemestersModel;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -104,6 +105,13 @@ class DashboardController extends Controller
 
     public function add_form_Banners() {
         return view('admin.banners.add_form');
+    }
+
+    public function edit_form_Banners($id, BannersModel $banners) {
+        $banner = $banners->find($id);
+        return view('admin.banners.edit_form',[
+            'banner' => $banner,
+        ]);
     }
 
     // Methods

@@ -9,6 +9,7 @@ use \App\Http\Controllers\StudiosController;
 use \App\Http\Controllers\CoursesController;
 use \App\Http\Controllers\SemestersCalendarController;
 use \App\Http\Controllers\BannersController;
+use \App\Http\Controllers\SiteSettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,10 +80,16 @@ Route::group(['middleware' => ['auth']], function() {
     // Settings
     Route::get('admin/settings', [DashboardController::class, 'index_Settings'])->name('settings')->middleware('admin');
 
+    Route::patch('admin/settings/edit', [SiteSettingsController::class, 'update'])->name('update-site')->middleware('admin');
+
     // Banners
     Route::get('admin/banners', [DashboardController::class, 'index_Banners'])->name('banners')->middleware('admin');
+    Route::get('admin/banner/{banner:id}', [DashboardController::class, 'edit_form_Banners'])->name('edit-banner-form')->middleware('admin');
     Route::get('admin/banners/add', [DashboardController::class, 'add_form_Banners'])->name('add-banner')->middleware('admin');
+
     Route::post('admin/banners/add', [BannersController::class, 'store'])->name('store-banner');
+    Route::patch('admin/banner/{banner:id}/edit', [BannersController::class, 'update'])->name('update-banner')->middleware('admin');
+    Route::get('admin/banner/{banner:id}/delete', [BannersController::class, 'destroy'])->name('delete-banner')->middleware('admin');
 });
 
 require __DIR__.'/auth.php';
