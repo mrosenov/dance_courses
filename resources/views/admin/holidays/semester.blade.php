@@ -10,6 +10,13 @@
     </nav>
     <div class="card card-default">
         <div class="card-body">
+            <select class="js-example-basic-single form-control" onchange="window.location.href=''+this.value">
+                <option disabled selected>Choose Semester</option>
+                @foreach($semesters as $sm)
+                    <option value="{{$sm->id}}">{{$sm->name}} {{ ($sm->id == $currentSemester->id) ? '[Current Semester]' : '' }}</option>
+                @endforeach
+            </select>
+            <a href="{{route('add-holiday',$semester->id)}}" class="btn btn-sm btn-success mb-2 mt-2">Add new holiday</a>
             <table class="table table-striped table-bordered" style="text-align: center;">
                 <thead>
                 <tr>

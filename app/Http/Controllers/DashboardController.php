@@ -85,6 +85,15 @@ class DashboardController extends Controller
         $Semesters = (new SemestersController);
         return view('admin.holidays.semester', [
             'semester' => $Semesters->getSemesterByID($id),
+            'semesters' => $Semesters->getSemestersList(),
+            'currentSemester' => $Semesters->CurrentSemester(),
+        ]);
+    }
+
+    public function add_form_Holiday($id) {
+        $Semester = (new SemestersController);
+        return view('admin.holidays.add_form', [
+            'semester' => $Semester->getSemesterByID($id)
         ]);
     }
 

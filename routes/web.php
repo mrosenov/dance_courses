@@ -10,6 +10,7 @@ use \App\Http\Controllers\CoursesController;
 use \App\Http\Controllers\SemestersCalendarController;
 use \App\Http\Controllers\BannersController;
 use \App\Http\Controllers\SiteSettingsController;
+use \App\Http\Controllers\SemestersHolidaysController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,6 +77,9 @@ Route::group(['middleware' => ['auth']], function() {
     // Holidays
     Route::get('admin/holidays', [DashboardController::class, 'index_Holidays'])->name('holidays')->middleware('admin');
     Route::get('admin/holidays/semester/{semester:id}', [DashboardController::class, 'index_HolidaysSemester'])->name('holidays-semester')->middleware('admin');
+    Route::get('admin/holidays/semester/{semester:id}/add', [DashboardController::class, 'add_form_Holiday'])->name('add-holiday')->middleware('admin');
+
+    Route::post('admin/holidays/semester/{semester:id}/add', [SemestersHolidaysController::class, 'store'])->name('store-holiday')->middleware('admin');
 
     // Settings
     Route::get('admin/settings', [DashboardController::class, 'index_Settings'])->name('settings')->middleware('admin');

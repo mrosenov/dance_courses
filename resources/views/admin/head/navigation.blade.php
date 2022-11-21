@@ -92,7 +92,7 @@
                         </div>
                     </ul>
                 </li>
-                <li class="{{Route::currentRouteNamed(['holidays','holidays-semester']) ?  'active' : ''}}">
+                <li class="{{Route::currentRouteNamed(['holidays','holidays-semester','add-holiday']) ?  'active' : ''}}">
                     <a class="sidenav-item-link" href="{{route('holidays')}}">
                         <i class="fa-duotone fa-lights-holiday"></i>
                         <span class="nav-text">Holidays</span>
