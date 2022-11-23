@@ -11,4 +11,8 @@ class SemestersHolidaysModel extends Model
 
     protected $fillable = ['name','description','semester','holiday_from','holiday_to'];
     protected $table = "semesters_holidays";
+
+    public function getSemester() {
+        return $this->belongsTo(SemestersModel::class,'semester', 'id');
+    }
 }

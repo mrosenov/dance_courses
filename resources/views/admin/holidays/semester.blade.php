@@ -34,14 +34,14 @@
                 @foreach($semester->Holidays as $holiday)
                 <tr>
                     <td style="vertical-align: middle; text-align: center;">{{ $holiday->id }}</td>
-                    <td style="vertical-align: middle; text-align: center;"><a href="#">{{ $holiday->name }}</a></td>
+                    <td style="vertical-align: middle; text-align: center;"><a href="{{route('update-holiday', $holiday->id)}}">{{ $holiday->name }}</a></td>
                     <td style="vertical-align: middle; text-align: center;">{{ $holiday->description }}</td>
                     <td style="vertical-align: middle; text-align: center;">{{ $holiday->holiday_from }} - {{ $holiday->holiday_to }}</td>
                     <td class="text-center">
-                        <a href="#" class="btn btn-sm btn-outline-smoke">
+                        <a href="{{route('edit-holiday-form', $holiday->id)}}" class="btn btn-sm btn-outline-smoke">
                             <i class="fa-duotone fa-pen-to-square"></i>
                         </a>
-                        <a href="#" class="btn btn-sm btn-outline-smoke">
+                        <a href="{{route('delete-holiday', $holiday->id)}}" class="btn btn-sm btn-outline-smoke">
                             <i class="fa-duotone fa-trash"></i>
                         </a>
                     </td>

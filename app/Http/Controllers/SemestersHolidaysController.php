@@ -31,6 +31,33 @@ class SemestersHolidaysController extends Controller
         $holiday->holiday_to = $request->holiday_to;
         $holiday->save();
 
-        return redirect::back()->with('success', $holiday->name.' have been added successfully');
+        return redirect::back()->with('success', $holiday->name.' have been added successfully.');
+    }
+
+    public function update($id, Request $request) {
+        $this->validate($request, [
+            'name' => 'required',
+            'short_description' => 'required',
+            'holiday_from' => 'required',
+            'holiday_to' => 'required',
+        ]);
+
+        $holiday = SemestersHolidaysModel::find($id);
+
+        $holiday->name = $request->name;
+        $holiday->description = $request->short_description;
+        $holiday->semester = $holiday->getSemester->id;
+        $holiday->holiday_from = $request->holiday_from;
+        $holiday->holiday_to = $request->holiday_to;
+        $holiday->update();
+
+        return redirect::back()->with('success', $holiday->name.' have been updated successfully.');
+    }
+
+    public function destroy($id) {
+        $holiday = SemestersHolidaysModel::find($id);
+        $holiday->delete();
+
+        return redirect::back()->with('success', $holiday->name.' have been deleted successfully.');
     }
 }

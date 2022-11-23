@@ -78,8 +78,12 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('admin/holidays', [DashboardController::class, 'index_Holidays'])->name('holidays')->middleware('admin');
     Route::get('admin/holidays/semester/{semester:id}', [DashboardController::class, 'index_HolidaysSemester'])->name('holidays-semester')->middleware('admin');
     Route::get('admin/holidays/semester/{semester:id}/add', [DashboardController::class, 'add_form_Holiday'])->name('add-holiday')->middleware('admin');
+    Route::get('admin/holiday/{holiday:id}', [DashboardController::class, 'edit_form_Holiday'])->name('edit-holiday-form')->middleware('admin');
 
     Route::post('admin/holidays/semester/{semester:id}/add', [SemestersHolidaysController::class, 'store'])->name('store-holiday')->middleware('admin');
+    Route::patch('admin/holiday/{holiday:id}/edit', [SemestersHolidaysController::class, 'update'])->name('update-holiday')->middleware('admin');
+    Route::get('admin/holiday/{holiday:id}/delete', [SemestersHolidaysController::class, 'destroy'])->name('delete-holiday')->middleware('admin');
+
 
     // Settings
     Route::get('admin/settings', [DashboardController::class, 'index_Settings'])->name('settings')->middleware('admin');

@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Controllers\AgeGroupsController;
+use App\Http\Controllers\SemestersController;
 use App\Models\BannersModel;
+use App\Models\SemestersHolidaysModel;
 use App\Models\SemestersModel;
 use App\Models\User;
 use Illuminate\Http\Request;
-use \App\Http\Controllers\SemestersController;
 use Monarobase\CountryList\CountryListFacade;
 
 class DashboardController extends Controller
@@ -94,6 +95,15 @@ class DashboardController extends Controller
         $Semester = (new SemestersController);
         return view('admin.holidays.add_form', [
             'semester' => $Semester->getSemesterByID($id)
+        ]);
+    }
+
+    public function edit_form_Holiday($id, SemestersHolidaysModel $holidays) {
+        $Semester = (new SemestersController);
+        $holiday = $holidays->find($id);
+        return view('admin.holidays.edit_form', [
+            'semester' => $Semester->getSemesterByID($id),
+            'holiday' => $holiday,
         ]);
     }
 
