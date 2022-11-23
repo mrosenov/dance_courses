@@ -11,6 +11,8 @@ use \App\Http\Controllers\SemestersCalendarController;
 use \App\Http\Controllers\BannersController;
 use \App\Http\Controllers\SiteSettingsController;
 use \App\Http\Controllers\SemestersHolidaysController;
+use \App\Http\Controllers\BlogPostsController;
+use \App\Http\Controllers\BlogCategoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,8 +72,16 @@ Route::group(['middleware' => ['auth']], function() {
     // Dance Styles
     Route::get('admin/dance_style', [DashboardController::class, 'index_DanceStyles'])->name('dance-styles')->middleware('admin');
 
-    // Blogs
+    // Blog Category
     Route::get('admin/blog_category', [DashboardController::class, 'index_BlogCategory'])->name('blog-category')->middleware('admin');
+    Route::get('admin/blog_category/add', [DashboardController::class, 'add_form_BlogCategory'])->name('add-blog-category')->middleware('admin');
+    Route::get('admin/blog_category/{blog_category:id}', [DashboardController::class, 'edit_form_BlogCategory'])->name('edit-blog-category-form')->middleware('admin');
+
+    Route::post('admin/blog_category/add', [BlogCategoriesController::class, 'store'])->name('store-blog-category')->middleware('admin');
+    Route::patch('admin/blog_category/{blog_category:id}/edit', [BlogCategoriesController::class, 'update'])->name('update-blog-category')->middleware('admin');
+    Route::get('admin/blog_category/{blog_category:id}/delete', [BlogCategoriesController::class, 'destroy'])->name('delete-blog-category')->middleware('admin');
+
+    // Blog Posts
     Route::get('admin/blog_posts', [DashboardController::class, 'index_BlogPosts'])->name('blog-posts')->middleware('admin');
 
     // Holidays

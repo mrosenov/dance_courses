@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\AgeGroupsController;
 use App\Http\Controllers\SemestersController;
 use App\Models\BannersModel;
+use App\Models\BlogCategoriesModel;
 use App\Models\SemestersHolidaysModel;
 use App\Models\SemestersModel;
 use App\Models\User;
@@ -64,6 +65,18 @@ class DashboardController extends Controller
         $BlogCategories = (new BlogCategoriesController);
         return view('admin.blog.category.index', [
             'categories' => $BlogCategories->getCategoriesList(),
+        ]);
+    }
+
+    public function add_form_BlogCategory() {
+        return view('admin.blog.category.add_form');
+    }
+
+    public function edit_form_BlogCategory($id, BlogCategoriesModel $categories) {
+        $category = $categories->find($id);
+
+        return view('admin.blog.category.edit_form', [
+            'category' => $category,
         ]);
     }
 

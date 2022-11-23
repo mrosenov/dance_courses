@@ -9,7 +9,7 @@
     </nav>
     <div class="card card-default">
         <div class="card-body">
-            <a href="#" class="btn btn-sm btn-success mb-2">Add new category</a>
+            <a href="{{route('add-blog-category')}}" class="btn btn-sm btn-success mb-2">Add new category</a>
             <table class="table table-striped table-bordered" style="width:100%">
                 <thead>
                 <tr>
@@ -23,13 +23,13 @@
                 @foreach($categories as $category)
                     <tr>
                         <td style="text-align: center; vertical-align: middle;">{{ $category->id }}</td>
-                        <td style="text-align: center; vertical-align: middle;"><a href="#">{{ $category->name }}</a></td>
+                        <td style="text-align: center; vertical-align: middle;"><a href="{{route('edit-blog-category-form', $category->id)}}">{{ $category->name }}</a></td>
                         <td style="text-align: center; vertical-align: middle;">{{ $category->slug }}</td>
                         <td style="text-align: center; vertical-align: middle;">
-                            <a href="#" class="btn btn-sm btn-outline-smoke">
+                            <a href="{{route('edit-blog-category-form', $category->id)}}" class="btn btn-sm btn-outline-smoke">
                                 <i class="fa-duotone fa-pen-to-square"></i>
                             </a>
-                            <a href="#" class="btn btn-sm btn-outline-smoke">
+                            <a href="{{route('delete-blog-category', $category->id)}}" class="btn btn-sm btn-outline-smoke">
                                 <i class="fa-duotone fa-trash"></i>
                             </a>
                         </td>
