@@ -499,5 +499,13 @@ $(document).ready(function() {
     if (select2Single.length != 0){
         select2Single.select2();
     }
+
+    $('#summernote').summernote({
+        tabsize: 0,
+        height: 200,
+        codemirror: { // codemirror options
+            theme: 'yeti'
+        }
+    });
 });
 

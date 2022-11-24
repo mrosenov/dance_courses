@@ -57,6 +57,7 @@
 <script src="{{asset('assets/admin/plugins/select2/js/select2.min.js')}}"></script>
 <script src="{{asset('assets/admin/js/map.js')}}"></script>
 <script src="{{asset('assets/admin/js/custom.js')}}"></script>
+<script src="{{asset('assets/admin/summernote/summernote-bs4.js')}}"></script>
 
 </body>
 </html>

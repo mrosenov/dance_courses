@@ -11,4 +11,12 @@ class BlogPostsModel extends Model
 
     protected $fillable = ['name','slug','content','category','author'];
     protected $table = "blog_posts";
+
+    public function getCategory() {
+        return $this->belongsTo(BlogCategoriesModel::class, 'category', 'id');
+    }
+
+    public function getAuthor() {
+        return $this->belongsTo(User::class, 'author', 'id');
+    }
 }

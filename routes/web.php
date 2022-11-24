@@ -82,7 +82,11 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('admin/blog_category/{blog_category:id}/delete', [BlogCategoriesController::class, 'destroy'])->name('delete-blog-category')->middleware('admin');
 
     // Blog Posts
-    Route::get('admin/blog_posts', [DashboardController::class, 'index_BlogPosts'])->name('blog-posts')->middleware('admin');
+    Route::get('admin/blog_category/{blog_category:id}/posts', [DashboardController::class, 'index_BlogPosts'])->name('blog-posts')->middleware('admin');
+    Route::get('admin/blog_category/{blog_category:id}/post/add', [DashboardController::class, 'add_form_BlogPosts'])->name('add-blog-post')->middleware('admin');
+    Route::get('admin/blog_category/{blog_category:id}/post/{post:id}', [DashboardController::class, 'edit_form_BlogPosts'])->name('edit-blog-post-form')->middleware('admin');
+
+    Route::post('admin/blog_category/{blog_category:id}/post/add', [BlogPostsController::class, 'store'])->name('store-blog-post')->middleware('admin');
 
     // Holidays
     Route::get('admin/holidays', [DashboardController::class, 'index_Holidays'])->name('holidays')->middleware('admin');

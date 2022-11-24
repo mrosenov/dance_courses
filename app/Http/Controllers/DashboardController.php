@@ -7,6 +7,7 @@ use App\Http\Controllers\AgeGroupsController;
 use App\Http\Controllers\SemestersController;
 use App\Models\BannersModel;
 use App\Models\BlogCategoriesModel;
+use App\Models\BlogPostsModel;
 use App\Models\SemestersHolidaysModel;
 use App\Models\SemestersModel;
 use App\Models\User;
@@ -80,10 +81,30 @@ class DashboardController extends Controller
         ]);
     }
 
-    public function index_BlogPosts() {
+    public function index_BlogPosts($id, BlogCategoriesModel $categories) {
+        $posts = $categories->find($id);
+        $category = $categories->find($id);
         $BlogPosts = (new BlogPostsController);
         return view('admin.blog.posts.index', [
-            'posts' => $BlogPosts->getBlogPostsList(),
+            'posts' => $posts,
+            'category' => $category,
+        ]);
+    }
+
+    public function add_form_BlogPosts($id, BlogCategoriesModel $categories) {
+        $category = $categories->find($id);
+        return view('admin.blog.posts.add_form', [
+            'category' => $category,
+        ]);
+    }
+
+    public function edit_form_BlogPosts($id, BlogCategoriesModel $categories, BlogPostsModel $posts, $id2) {
+        $post = $posts->find($id2);
+        $category = $categories->find($id);
+        return view('admin.blog.posts.edit_form', [
+            'categories' => $categories->get(),
+            'currentCategory' => $category,
+            'post' => $post,
         ]);
     }
 

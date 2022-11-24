@@ -19,6 +19,7 @@
     <link id="main-css-href" href="{{asset('assets/admin/css/mono.css')}}" rel="stylesheet">
     <link href="{{asset('assets/admin/plugins/select2/css/select2.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.0/css/all.css">
+    <link href="{{asset('assets/admin/summernote/summernote-bs4.css')}}" rel="stylesheet">
 
     <link href="{{asset('assets/admin/img/favicon.png')}}" rel="shortcut icon">
     <!--[if lt IE 9]>

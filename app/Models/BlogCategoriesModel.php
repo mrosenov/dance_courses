@@ -11,4 +11,8 @@ class BlogCategoriesModel extends Model
 
     protected $fillable = ['name','slug'];
     protected $table = "blog_categories";
+
+    public function getPosts() {
+        return $this->hasMany(BlogPostsModel::class, 'category', 'id');
+    }
 }
