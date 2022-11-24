@@ -29,7 +29,7 @@
                             <a href="{{route('edit-blog-category-form', $category->id)}}" class="btn btn-sm btn-outline-smoke">
                                 <i class="fa-duotone fa-pen-to-square"></i>
                             </a>
-                            <a href="{{route('edit-blog-category-form', $category->id)}}" class="btn btn-sm btn-outline-smoke">
+                            <a href="{{route('blog-posts', $category->id)}}" class="btn btn-sm btn-outline-smoke">
                                 <i class="fa-duotone fa-newspaper"></i>
                             </a>
                             <a href="{{route('delete-blog-category', $category->id)}}" class="btn btn-sm btn-outline-smoke">

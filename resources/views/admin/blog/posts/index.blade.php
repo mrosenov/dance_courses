@@ -4,7 +4,8 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb breadcrumb-light">
             <li class="breadcrumb-item"><a href="{{route('admin')}}">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Blog Posts</li>
+            <li class="breadcrumb-item" aria-current="page"><a href="{{route('blog-category')}}">Blog Categories</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{$category->name}}</li>
         </ol>
     </nav>
     <div class="card card-default">
@@ -25,15 +26,15 @@
                 @foreach($posts->getPosts as $post)
                     <tr>
                         <td style="text-align: center; vertical-align: middle;">{{ $post->id }}</td>
-                        <td style="text-align: center; vertical-align: middle;"><a href="#">{{ $post->name }}</a></td>
+                        <td style="text-align: center; vertical-align: middle;"><a href="{{route('edit-blog-post-form', [$category->id,$post->id])}}">{{ $post->name }}</a></td>
                         <td style="text-align: center; vertical-align: middle;">{{ $post->slug }}</td>
                         <td style="text-align: center; vertical-align: middle;">{{ $post->getCategory->name }}</td>
                         <td style="text-align: center; vertical-align: middle;">{{ $post->getAuthor->name }}</td>
                         <td style="text-align: center; vertical-align: middle;">
-                            <a href="#" class="btn btn-sm btn-outline-smoke">
+                            <a href="{{route('edit-blog-post-form', [$category->id,$post->id])}}" class="btn btn-sm btn-outline-smoke">
                                 <i class="fa-duotone fa-pen-to-square"></i>
                             </a>
-                            <a href="#" class="btn btn-sm btn-outline-smoke">
+                            <a href="{{route('delete-blog-post', [$category->id,$post->id])}}" class="btn btn-sm btn-outline-smoke">
                                 <i class="fa-duotone fa-trash"></i>
                             </a>
                         </td>

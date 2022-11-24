@@ -73,13 +73,13 @@
                     </a>
                 </li>
                 <li class="has-sub {{Route::currentRouteNamed(['blog-category','blog-posts','add-blog-category','edit-blog-category-form','add-blog-post','edit-blog-post-form']) ?  'active' : ''}} {{Route::currentRouteNamed(['users']) ?  'expand' : ''}}">
-                    <a class="sidenav-item-link {{Route::currentRouteNamed(['blog-category']) ?  '' : 'collapsed'}}" href="javascript:void(0)" data-toggle="collapse" data-target="#blogs" aria-expanded="{{Route::currentRouteNamed(['semesters']) ?  'true' : 'false'}}">
+                    <a class="sidenav-item-link {{Route::currentRouteNamed(['blog-category','blog-posts','add-blog-category','edit-blog-category-form','add-blog-post','edit-blog-post-form']) ?  '' : 'collapsed'}}" href="javascript:void(0)" data-toggle="collapse" data-target="#blogs" aria-expanded="{{Route::currentRouteNamed(['semesters']) ?  'true' : 'false'}}">
                         <i class="fa-brands fa-blogger"></i>
                         <span class="nav-text">Blogs</span> <b class="caret"></b>
                     </a>
                     <ul class="collapse {{Route::currentRouteNamed(['blog-category','blog-posts','add-blog-category','edit-blog-category-form','add-blog-post','edit-blog-post-form']) ?  'show' : ''}}" id="blogs" data-parent="#sidebar-menu" style="">
                         <div class="sub-menu">
-                            <li class="{{Route::currentRouteNamed(['blog-category','add-blog-category','edit-blog-category-form']) ?  'active' : ''}}">
+                            <li class="{{Route::currentRouteNamed(['blog-category','blog-posts','add-blog-category','edit-blog-category-form','add-blog-post','edit-blog-post-form']) ?  'active' : ''}}">
                                 <a class="sidenav-item-link" href="{{route('blog-category')}}">
                                     <span class="nav-text">List of all categories</span>
                                 </a>

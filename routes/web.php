@@ -87,6 +87,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('admin/blog_category/{blog_category:id}/post/{post:id}', [DashboardController::class, 'edit_form_BlogPosts'])->name('edit-blog-post-form')->middleware('admin');
 
     Route::post('admin/blog_category/{blog_category:id}/post/add', [BlogPostsController::class, 'store'])->name('store-blog-post')->middleware('admin');
+    Route::patch('admin/blog_category/{blog_category:id}/post/{post:id}/edit', [BlogPostsController::class, 'update'])->name('update-blog-post')->middleware('admin');
+    Route::get('admin/blog_category/{blog_category:id}/post/{post:id}/delete', [BlogPostsController::class, 'destroy'])->name('delete-blog-post')->middleware('admin');
 
     // Holidays
     Route::get('admin/holidays', [DashboardController::class, 'index_Holidays'])->name('holidays')->middleware('admin');
