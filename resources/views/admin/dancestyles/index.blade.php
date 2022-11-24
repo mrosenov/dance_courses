@@ -10,26 +10,27 @@
 
     <div class="card card-default">
         <div class="card-body">
-            <a href="#" class="btn btn-sm btn-success mb-2">Add new dance style</a>
+            <a href="{{route('add-dance-styles')}}" class="btn btn-sm btn-success mb-2">Add new dance style</a>
             <table id="productsTable" class="table table-product table-striped table-bordered" style="width:100%">
                 <thead>
                 <tr>
                     <th scope="col" style="text-align: center;">#</th>
                     <th scope="col" style="text-align: center;">Name</th>
                     <th scope="col" style="text-align: center;">Description</th>
+                    <th scope="col" style="text-align: center;">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($DanceStyles as $DanceStyle)
                     <tr>
                         <td style="text-align: center; vertical-align: middle;">{{$DanceStyle->id}}</td>
-                        <td style="text-align: center; vertical-align: middle;"><a href="#">{{$DanceStyle->name}}</a></td>
-                        <td style="text-align: center; vertical-align: middle;">{{$DanceStyle->description}}</td>
+                        <td style="text-align: center; vertical-align: middle;"><a href="{{route('edit-dance-styles-form', $DanceStyle->id)}}">{{$DanceStyle->name}}</a></td>
+                        <td style="text-align: center; vertical-align: middle;">{!! $DanceStyle->description !!}</td>
                         <td style="text-align: center; vertical-align: middle;">
-                            <a href="#" class="btn btn-sm btn-outline-smoke">
+                            <a href="{{route('edit-dance-styles-form', $DanceStyle->id)}}" class="btn btn-sm btn-outline-smoke">
                                 <i class="fa-duotone fa-pen-to-square"></i>
                             </a>
-                            <a href="#" class="btn btn-sm btn-outline-smoke">
+                            <a href="{{route('delete-dance-style', $DanceStyle->id)}}" class="btn btn-sm btn-outline-smoke">
                                 <i class="fa-duotone fa-trash"></i>
                             </a>
                         </td>

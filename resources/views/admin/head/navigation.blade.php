@@ -66,7 +66,7 @@
                         <span class="nav-text">Age Groups</span>
                     </a>
                 </li>
-                <li class="{{Route::currentRouteNamed(['dance-styles']) ?  'active' : ''}}">
+                <li class="{{Route::currentRouteNamed(['dance-styles','add-dance-styles','edit-dance-styles-form']) ?  'active' : ''}}">
                     <a class="sidenav-item-link" href="{{route('dance-styles')}}">
                         <i class="fa-duotone fa-list-music"></i>
                         <span class="nav-text">Dance Styles</span>

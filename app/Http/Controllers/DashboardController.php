@@ -8,6 +8,7 @@ use App\Http\Controllers\SemestersController;
 use App\Models\BannersModel;
 use App\Models\BlogCategoriesModel;
 use App\Models\BlogPostsModel;
+use App\Models\DanceStylesModel;
 use App\Models\SemestersHolidaysModel;
 use App\Models\SemestersModel;
 use App\Models\User;
@@ -59,6 +60,17 @@ class DashboardController extends Controller
         $DanceStyles = (new DanceStylesController);
         return view('admin.dancestyles.index', [
             'DanceStyles' => $DanceStyles->getDanceStylesList(),
+        ]);
+    }
+
+    public function add_form_DanceStyles() {
+        return view('admin.dancestyles.add_form');
+    }
+
+    public function edit_form_DanceStyles($id, DanceStylesModel $styles) {
+        $style = $styles->find($id);
+        return view('admin.dancestyles.edit_form', [
+            'style' => $style,
         ]);
     }
 

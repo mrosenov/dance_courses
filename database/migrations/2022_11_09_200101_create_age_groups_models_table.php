@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->timestamps();
-            $table->tinyInteger('active');
+            $table->tinyInteger('active')->nullable();
         });
     }
 

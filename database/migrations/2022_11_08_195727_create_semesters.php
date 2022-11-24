@@ -17,7 +17,7 @@ return new class extends Migration
             $table->timestamp('semester_start');
             $table->timestamp('semester_end');
             $table->timestamps();
-            $table->tinyInteger('active');
+            $table->tinyInteger('active')->nullable();
         });
     }
 

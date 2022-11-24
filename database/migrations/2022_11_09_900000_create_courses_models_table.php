@@ -29,7 +29,7 @@ return new class extends Migration
             $table->timestamps();
             $table->float('price');
             $table->enum('weekday', ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'])->default('Monday');
-            $table->tinyInteger('active');
+            $table->tinyInteger('active')->nullable();
 
             $table->foreign('semester')->references('id')->on('semesters')->onDelete('cascade');
             $table->foreign('studio')->references('id')->on('studios')->onDelete('cascade');

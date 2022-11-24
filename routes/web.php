@@ -13,6 +13,7 @@ use \App\Http\Controllers\SiteSettingsController;
 use \App\Http\Controllers\SemestersHolidaysController;
 use \App\Http\Controllers\BlogPostsController;
 use \App\Http\Controllers\BlogCategoriesController;
+use \App\Http\Controllers\DanceStylesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,6 +72,12 @@ Route::group(['middleware' => ['auth']], function() {
 
     // Dance Styles
     Route::get('admin/dance_style', [DashboardController::class, 'index_DanceStyles'])->name('dance-styles')->middleware('admin');
+    Route::get('admin/dance_style/add', [DashboardController::class, 'add_form_DanceStyles'])->name('add-dance-styles')->middleware('admin');
+    Route::get('admin/dance_style/{style:id}', [DashboardController::class, 'edit_form_DanceStyles'])->name('edit-dance-styles-form')->middleware('admin');
+
+    Route::post('admin/dance_style/add', [DanceStylesController::class, 'store'])->name('store-dance-style')->middleware('admin');
+    Route::patch('admin/dance_style/{style:id}', [DanceStylesController::class, 'update'])->name('update-dance-style')->middleware('admin');
+    Route::get('admin/dance_style/{style:id}/delete', [DanceStylesController::class, 'destroy'])->name('delete-dance-style')->middleware('admin');
 
     // Blog Category
     Route::get('admin/blog_category', [DashboardController::class, 'index_BlogCategory'])->name('blog-category')->middleware('admin');

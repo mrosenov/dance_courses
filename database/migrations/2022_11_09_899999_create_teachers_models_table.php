@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedInteger('dance_style')->index();
             $table->text('description');
             $table->timestamps();
-            $table->tinyInteger('active');
+            $table->tinyInteger('active')->nullable();
 
             $table->foreign('user')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('dance_style')->references('id')->on('dance_styles')->onDelete('cascade');

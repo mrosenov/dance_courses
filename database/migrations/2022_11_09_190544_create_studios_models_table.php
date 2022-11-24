@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->unsignedInteger('semester')->index();
             $table->timestamps();
-            $table->tinyInteger('active');
+            $table->tinyInteger('active')->nullable();
 
             $table->foreign('semester')->references('id')->on('semesters')->onDelete('cascade');
         });
