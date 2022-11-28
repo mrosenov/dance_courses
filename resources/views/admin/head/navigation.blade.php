@@ -60,7 +60,7 @@
                         </div>
                     </ul>
                 </li>
-                <li class="{{Route::currentRouteNamed(['age-groups']) ?  'active' : ''}}">
+                <li class="{{Route::currentRouteNamed(['age-groups','add-age-groups','edit-age-groups']) ?  'active' : ''}}">
                     <a class="sidenav-item-link" href="{{route('age-groups')}}">
                         <i class="fa-duotone fa-child-reaching"></i>
                         <span class="nav-text">Age Groups</span>

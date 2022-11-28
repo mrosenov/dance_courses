@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\AgeGroupsController;
 use App\Http\Controllers\SemestersController;
+use App\Models\AgeGroupsModel;
 use App\Models\BannersModel;
 use App\Models\BlogCategoriesModel;
 use App\Models\BlogPostsModel;
@@ -53,6 +54,17 @@ class DashboardController extends Controller
         $AgeGroups = (new AgeGroupsController);
         return view('admin.agegroups.index', [
             'AgeGroups' => $AgeGroups->getAgeGroupList(),
+        ]);
+    }
+
+    public function add_form_AgeGroups() {
+        return view('admin.agegroups.add_form');
+    }
+
+    public function edit_form_AgeGroups($id, AgeGroupsModel $AgeGroups) {
+        $AgeGroup = $AgeGroups->find($id);
+        return view('admin.agegroups.edit_form', [
+            'agegroup' => $AgeGroup,
         ]);
     }
 

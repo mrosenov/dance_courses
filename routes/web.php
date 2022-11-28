@@ -14,6 +14,7 @@ use \App\Http\Controllers\SemestersHolidaysController;
 use \App\Http\Controllers\BlogPostsController;
 use \App\Http\Controllers\BlogCategoriesController;
 use \App\Http\Controllers\DanceStylesController;
+use \App\Http\Controllers\AgeGroupsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +70,12 @@ Route::group(['middleware' => ['auth']], function() {
 
     // Age Groups
     Route::get('admin/age_groups', [DashboardController::class, 'index_AgeGroups'])->name('age-groups')->middleware('admin');
+    Route::get('admin/age_groups/add', [DashboardController::class, 'add_form_AgeGroups'])->name('add-age-groups')->middleware('admin');
+    Route::get('admin/age_groups/{age_group:id}', [DashboardController::class, 'edit_form_AgeGroups'])->name('edit-age-groups')->middleware('admin');
+
+    Route::post('admin/age_groups/add', [AgeGroupsController::class, 'store'])->name('store-age-group')->middleware('admin');
+    Route::patch('admin/age_groups/{age_group:id}/edit', [AgeGroupsController::class, 'update'])->name('update-age-group')->middleware('admin');
+    Route::get('admin/age_groups/{age_group:id}/delete', [AgeGroupsController::class, 'destroy'])->name('delete-age-group')->middleware('admin');
 
     // Dance Styles
     Route::get('admin/dance_style', [DashboardController::class, 'index_DanceStyles'])->name('dance-styles')->middleware('admin');
