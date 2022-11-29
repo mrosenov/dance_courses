@@ -15,6 +15,7 @@ use \App\Http\Controllers\BlogPostsController;
 use \App\Http\Controllers\BlogCategoriesController;
 use \App\Http\Controllers\DanceStylesController;
 use \App\Http\Controllers\AgeGroupsController;
+use \App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +68,19 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('admin/users', [DashboardController::class, 'index_users'])->name('users')->middleware('admin');
     Route::get('admin/teachers', [DashboardController::class, 'index_teachers'])->name('teachers')->middleware('admin');
     Route::get('admin/students', [DashboardController::class, 'index_students'])->name('students')->middleware('admin');
+
+
+    Route::get('admin/users/{user:id}', [DashboardController::class, 'edit_form_Users'])->name('edit-user')->middleware('admin');
+    Route::get('admin/teachers/{teacher:id}', [DashboardController::class, 'edit_form_Teachers'])->name('edit-teacher')->middleware('admin');
+    Route::get('admin/students/{student:id}', [DashboardController::class, 'edit_form_Students'])->name('edit-student')->middleware('admin');
+
+    Route::patch('admin/users/{user:id}', [UsersController::class, 'update'])->name('update-user')->middleware('admin');
+    Route::patch('admin/teachers/{teacher:id}', [UsersController::class, 'update'])->name('update-teacher')->middleware('admin');
+    Route::patch('admin/students/{student:id}', [UsersController::class, 'update'])->name('update-student')->middleware('admin');
+
+    Route::get('admin/users/{user:id}/delete', [UsersController::class, 'destroy'])->name('delete-user')->middleware('admin');
+    Route::get('admin/teachers/{teacher:id}/delete', [UsersController::class, 'destroy'])->name('delete-teacher')->middleware('admin');
+    Route::get('admin/students/{student:id}/delete', [UsersController::class, 'destroy'])->name('delete-student')->middleware('admin');
 
     // Age Groups
     Route::get('admin/age_groups', [DashboardController::class, 'index_AgeGroups'])->name('age-groups')->middleware('admin');

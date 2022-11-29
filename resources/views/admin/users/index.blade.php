@@ -9,7 +9,6 @@
     </nav>
     <div class="card card-default">
         <div class="card-body">
-            <a href="#" class="btn btn-sm btn-success mb-2">Add new student</a>
             <table id="productsTable" class="table table-product table-striped table-bordered" style="width:100%">
                 <thead>
                 <tr>
@@ -32,12 +31,33 @@
                         <td style="text-align: center; vertical-align: middle;">{{$user->role}}</td>
                         <td style="text-align: center; vertical-align: middle;">{{$user->updated_at}}</td>
                         <td style="text-align: center; vertical-align: middle;">
-                            <a href="#" class="btn btn-sm btn-outline-smoke">
-                                <i class="fa-duotone fa-pen-to-square"></i>
-                            </a>
-                            <a href="#" class="btn btn-sm btn-outline-smoke">
-                                <i class="fa-duotone fa-trash"></i>
-                            </a>
+                            @if($user->role == 'Admin')
+                                <a href="{{ route('edit-user', $user->id) }}" class="btn btn-sm btn-outline-smoke">
+                                    <i class="fa-duotone fa-pen-to-square"></i>
+                                </a>
+                            @elseif($user->role == 'Teacher')
+                                <a href="{{ route('edit-teacher', $user->id) }}" class="btn btn-sm btn-outline-smoke">
+                                    <i class="fa-duotone fa-pen-to-square"></i>
+                                </a>
+                            @elseif($user->role == 'Student')
+                                <a href="{{ route('edit-student', $user->id) }}" class="btn btn-sm btn-outline-smoke">
+                                    <i class="fa-duotone fa-pen-to-square"></i>
+                                </a>
+                            @endif
+
+                            @if($user->role == 'Admin')
+                                <a href="{{route('delete-user', $user->id)}}" class="btn btn-sm btn-outline-smoke">
+                                    <i class="fa-duotone fa-trash"></i>
+                                </a>
+                            @elseif($user->role == 'Teacher')
+                                <a href="{{route('delete-teacher', $user->id)}}" class="btn btn-sm btn-outline-smoke">
+                                    <i class="fa-duotone fa-trash"></i>
+                                </a>
+                            @elseif($user->role == 'Student')
+                                <a href="{{route('delete-student', $user->id)}}" class="btn btn-sm btn-outline-smoke">
+                                    <i class="fa-duotone fa-trash"></i>
+                                </a>
+                            @endif
                         </td>
                     </tr>
                 @endforeach

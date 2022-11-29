@@ -35,24 +35,24 @@
                         <span class="nav-text">Semester Calendar</span>
                     </a>
                 </li>
-                <li class="has-sub {{Route::currentRouteNamed(['users']) ?  'active' : ''}} {{Route::currentRouteNamed(['users']) ?  'expand' : ''}}">
-                    <a class="sidenav-item-link {{Route::currentRouteNamed(['users']) ?  '' : 'collapsed'}}" href="javascript:void(0)" data-toggle="collapse" data-target="#users" aria-expanded="{{Route::currentRouteNamed(['semesters']) ?  'true' : 'false'}}">
+                <li class="has-sub {{Route::currentRouteNamed(['users','teachers','students','edit-user','edit-teacher','edit-student']) ?  'active' : ''}} {{Route::currentRouteNamed(['users']) ?  'expand' : ''}}">
+                    <a class="sidenav-item-link {{Route::currentRouteNamed(['users','edit-user']) ?  '' : 'collapsed'}}" href="javascript:void(0)" data-toggle="collapse" data-target="#users" aria-expanded="{{Route::currentRouteNamed(['semesters']) ?  'true' : 'false'}}">
                         <i class="fa-duotone fa-users"></i>
                         <span class="nav-text">Users</span> <b class="caret"></b>
                     </a>
-                    <ul class="collapse {{Route::currentRouteNamed(['users','teachers','students']) ?  'show' : ''}}" id="users" data-parent="#sidebar-menu" style="">
+                    <ul class="collapse {{Route::currentRouteNamed(['users','teachers','students','edit-user','edit-teacher','edit-student']) ?  'show' : ''}}" id="users" data-parent="#sidebar-menu" style="">
                         <div class="sub-menu">
-                            <li class="{{Route::currentRouteNamed(['users']) ?  'active' : ''}}">
+                            <li class="{{Route::currentRouteNamed(['users','edit-user']) ?  'active' : ''}}">
                                 <a class="sidenav-item-link" href="{{route('users')}}">
                                     <span class="nav-text">List of all users</span>
                                 </a>
                             </li>
-                            <li class="{{Route::currentRouteNamed(['teachers']) ?  'active' : ''}}">
+                            <li class="{{Route::currentRouteNamed(['teachers','edit-teacher']) ?  'active' : ''}}">
                                 <a class="sidenav-item-link" href="{{route('teachers')}}">
                                     <span class="nav-text">List of all teachers</span>
                                 </a>
                             </li>
-                            <li class="{{Route::currentRouteNamed(['students']) ?  'active' : ''}}">
+                            <li class="{{Route::currentRouteNamed(['students','edit-student']) ?  'active' : ''}}">
                                 <a class="sidenav-item-link" href="{{route('students')}}">
                                     <span class="nav-text">List of all students</span>
                                 </a>

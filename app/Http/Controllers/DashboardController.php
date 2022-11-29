@@ -32,6 +32,16 @@ class DashboardController extends Controller
         ]);
     }
 
+    public function edit_form_Users($id, User $users) {
+        $user = $users->find($id);
+        $countries = CountryListFacade::getList('en');
+
+        return view('admin.users.edit_form',[
+            'user' => $user,
+            'countries' => $countries,
+        ]);
+    }
+
     public function index_teachers() {
         $AgeGroup = (new AgeGroupsController);
 
@@ -41,12 +51,32 @@ class DashboardController extends Controller
         ]);
     }
 
+    public function edit_form_Teachers($id, User $users) {
+        $teacher = $users->find($id);
+        $countries = CountryListFacade::getList('en');
+
+        return view('admin.teachers.edit_form',[
+            'teacher' => $teacher,
+            'countries' => $countries,
+        ]);
+    }
+
     public function index_students() {
         $AgeGroup = (new AgeGroupsController);
 
         return view('admin.students.index', [
             'students' => $this->getStudentsList(),
             'AgeGroup' => $AgeGroup,
+        ]);
+    }
+
+    public function edit_form_Students($id, User $users) {
+        $student = $users->find($id);
+        $countries = CountryListFacade::getList('en');
+
+        return view('admin.students.edit_form',[
+            'student' => $student,
+            'countries' => $countries,
         ]);
     }
 

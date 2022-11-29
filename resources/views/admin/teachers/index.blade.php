@@ -9,7 +9,6 @@
     </nav>
     <div class="card card-default">
         <div class="card-body">
-            <a href="#" class="btn btn-sm btn-success mb-2">Add new teacher</a>
             <table id="productsTable" class="table table-product table-striped table-bordered" style="width:100%">
                 <thead>
                 <tr>
@@ -32,7 +31,7 @@
                         <td style="text-align: center; vertical-align: middle;">{{$teacher->role}}</td>
                         <td style="text-align: center; vertical-align: middle;">{{$teacher->updated_at}}</td>
                         <td style="text-align: center; vertical-align: middle;">
-                            <a href="#" class="btn btn-sm btn-outline-smoke">
+                            <a href="{{route('edit-teacher', $teacher->id)}}" class="btn btn-sm btn-outline-smoke">
                                 <i class="fa-duotone fa-pen-to-square"></i>
                             </a>
                             <a href="#" class="btn btn-sm btn-outline-smoke">
