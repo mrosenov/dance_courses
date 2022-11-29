@@ -23,6 +23,34 @@ class DashboardController extends Controller
         return view('admin.index');
     }
 
+    public function index_Semesters(SemestersModel $semesters) {
+        $semester = (new SemestersController);
+        return view('admin.semesters.index', [
+            'semesters' => $semesters::orderBy("semester_start", "desc")->paginate(10),
+            'prev' => $semester->PreviousSemester(),
+            'current' => $semester->CurrentSemester(),
+            'next' => $semester->NextSemester(),
+        ]);
+    }
+
+    public function add_form_Semester() {
+        return view('admin.semesters.add_form');
+    }
+
+    public function edit_form_Semester($id, SemestersModel $semesters) {
+        $semester = $semesters->find($id);
+        return view('admin.semesters.edit_form', [
+            'semester' => $semester,
+        ]);
+    }
+
+    public function index_Studios($id, SemestersModel $semesters) {
+        $semester = $semesters::find($id);
+        return view('admin.semester.index', [
+            'semester' => $semester,
+        ]);
+    }
+
     public function index_users() {
         $AgeGroup = (new AgeGroupsController);
 

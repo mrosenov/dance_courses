@@ -59,7 +59,7 @@
 
 
             <hr>
-            <a href="#" class="btn btn-sm btn-success mb-2">Add new semester</a>
+            <a href="{{route('add-semester')}}" class="btn btn-sm btn-success mb-2">Add new semester</a>
             <table class="table table-striped table-bordered mb-2" style="text-align: center;">
                 <thead>
                     <tr>
@@ -86,10 +86,10 @@
                             <a href="{{route('semester', $semester->id)}}" class="btn btn-sm btn-outline-smoke">
                                 <i class="fa-duotone fa-building"></i>
                             </a>
-                            <a href="{{route('semester', $semester->id)}}" class="btn btn-sm btn-outline-smoke">
+                            <a href="{{route('edit-semester', $semester->id)}}" class="btn btn-sm btn-outline-smoke">
                                 <i class="fa-duotone fa-pen-to-square"></i>
                             </a>
-                            <a href="#" class="btn btn-sm btn-outline-smoke">
+                            <a href="{{route('delete-semester', $semester->id)}}" class="btn btn-sm btn-outline-smoke">
                                 <i class="fa-duotone fa-trash"></i>
                             </a>
                         </th>
