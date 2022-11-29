@@ -13,6 +13,7 @@
         </div>
 
         <div class="card-body">
+
             <table class="table table-bordered table-striped table-hover mb-5" style="text-align: center;">
                 <thead>
                 <tr>
@@ -29,26 +30,33 @@
                 </tr>
                 </thead>
                 <tbody>
+                @if($prev)
                 <tr>
                     <td scope="row" style="vertical-align: middle">Previous Semester</td>
                     <td style="vertical-align: middle">{{$prev->name}}</td>
                     <td style="vertical-align: middle">{{$prev->semester_start}}</td>
                     <td style="vertical-align: middle">{{$prev->semester_end}}</td>
                 </tr>
+                @endif
+                @if($current)
                 <tr>
                     <td scope="row" style="vertical-align: middle">Current Semester</td>
                     <td style="vertical-align: middle">{{$current->name}}</td>
                     <td style="vertical-align: middle">{{$current->semester_start}}</td>
                     <td style="vertical-align: middle">{{$current->semester_end}}</td>
                 </tr>
+                @endif
+                @if($next)
                 <tr>
                     <td scope="row" style="vertical-align: middle">Next Semester</td>
                     <td style="vertical-align: middle">{{$next->name}}</td>
                     <td style="vertical-align: middle">{{$next->semester_start}}</td>
                     <td style="vertical-align: middle">{{$next->semester_end}}</td>
                 </tr>
+                @endif
                 </tbody>
             </table>
+
 
             <hr>
             <a href="#" class="btn btn-sm btn-success mb-2">Add new semester</a>

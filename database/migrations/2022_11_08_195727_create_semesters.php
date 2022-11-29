@@ -14,8 +14,8 @@ return new class extends Migration
 
             $table->integerIncrements('id');
             $table->string('name');
-            $table->timestamp('semester_start');
-            $table->timestamp('semester_end');
+            $table->timestamp('semester_start')->nullable();
+            $table->timestamp('semester_end')->nullable();
             $table->timestamps();
             $table->tinyInteger('active')->nullable();
         });

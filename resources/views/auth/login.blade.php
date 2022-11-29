@@ -74,10 +74,10 @@
                                 <input type="number" name="phone" value="{{old('phone')}}" placeholder="Student Phone" required />
                             </div>
                             <div class="input-box mb--30">
-                                <input type="text" name="contactperson" value="{{old('contactperson')}}" placeholder="Contact Person" required />
+                                <input type="text" name="contactperson" value="{{old('contactperson')}}" placeholder="Contact Person" />
                             </div>
                             <div class="input-box mb--30">
-                                <input type="number" name="contactpersonphone" value="{{old('contactpersonphone')}}" placeholder="Contact Person Phone" required />
+                                <input type="number" name="contactpersonphone" value="{{old('contactpersonphone')}}" placeholder="Contact Person Phone" />
                             </div>
                             <div class="input-box mb--30 @if($errors->get('password')) is-invalid @endif">
                                 <input type="password" name="password" placeholder="Password" required autocomplete="new-password" />

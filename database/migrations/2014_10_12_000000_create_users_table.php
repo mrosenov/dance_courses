@@ -24,10 +24,10 @@ return new class extends Migration
             $table->integer('postcode');
             $table->string('address');
             $table->string('phone')->unique();
-            $table->string('contactperson');
-            $table->string('contactpersonphone');
+            $table->string('contactperson')->nullable();
+            $table->string('contactpersonphone')->nullable();
             $table->string('password');
-            $table->timestamp('birthday');
+            $table->date('birthday')->nullable();
             $table->enum('role', ['Admin', 'Teacher', 'Student'])->default('Student');
             $table->rememberToken();
             $table->timestamp('email_verified_at')->nullable();

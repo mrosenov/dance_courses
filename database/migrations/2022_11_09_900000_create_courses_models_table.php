@@ -24,8 +24,8 @@ return new class extends Migration
             $table->integer('free_places');
             $table->time('course_start');
             $table->time('course_end');
-            $table->timestamp('course_register_start');
-            $table->timestamp('course_register_end');
+            $table->timestamp('course_register_start')->nullable();
+            $table->timestamp('course_register_end')->nullable();
             $table->timestamps();
             $table->float('price');
             $table->enum('weekday', ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'])->default('Monday');
