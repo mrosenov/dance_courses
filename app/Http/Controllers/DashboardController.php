@@ -12,6 +12,7 @@ use App\Models\BlogPostsModel;
 use App\Models\DanceStylesModel;
 use App\Models\SemestersHolidaysModel;
 use App\Models\SemestersModel;
+use App\Models\StudiosModel;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Monarobase\CountryList\CountryListFacade;
@@ -46,8 +47,36 @@ class DashboardController extends Controller
 
     public function index_Studios($id, SemestersModel $semesters) {
         $semester = $semesters::find($id);
-        return view('admin.semester.index', [
+        return view('admin.studios.index', [
             'semester' => $semester,
+        ]);
+    }
+
+    public function add_form_Studio($semesterID, SemestersModel $semesters) {
+        $semester = $semesters->find($semesterID);
+        return view('admin.studios.add_form', [
+            'semester' => $semester,
+        ]);
+    }
+
+    public function edit_form_Studio($semesterID,$studioID, SemestersModel $semesters, StudiosModel $studios) {
+
+        $semester = $semesters->find($semesterID);
+        $studio = $studios->find($studioID);
+
+        return view('admin.studios.edit_form', [
+            'semesters' => $semesters->get(),
+            'semester' => $semester,
+            'studio' => $studio,
+        ]);
+    }
+
+    public function index_Courses($id,StudiosModel $studios) {
+        $studio = (new StudiosController);
+
+        return view('admin.courses.index', [
+            'studio' => $studio->getStudio($id),
+            'courses' => $studio->getCourses($id),
         ]);
     }
 

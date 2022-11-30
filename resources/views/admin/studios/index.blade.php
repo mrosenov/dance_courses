@@ -13,7 +13,7 @@
             <h2>All studios for semester [ {{$semester->id}} ] - {{$semester->name}}</h2>
         </div>
         <div class="card-body">
-                <a href="#" class="btn btn-sm btn-success mb-2">Add new studio</a>
+                <a href="{{route('add-studio', $semester->id)}}" class="btn btn-sm btn-success mb-2">Add new studio</a>
                 <table class="table table-striped table-bordered" style="text-align: center;">
                     <thead>
                     <tr>
@@ -30,16 +30,16 @@
                     @foreach($semester->Studios as $studio)
                         <tr>
                             <td scope="row" style="vertical-align: middle">{{$studio->id}}</td>
-                            <td style="vertical-align: middle"><a href="{{route('studio', $studio->id)}}">{{$studio->name}}</a></td>
+                            <td style="vertical-align: middle"><a href="{{route('studio', [$semester->id,$studio->id])}}">{{$studio->name}}</a></td>
                             <td style="vertical-align: middle">{{ $studio->active ? 'Active' : 'Not Active' }}</td>
                             <th class="text-center">
-                                <a href="{{route('studio', $studio->id)}}" class="btn btn-sm btn-outline-smoke">
+                                <a href="{{route('studio', [$semester->id,$studio->id])}}" class="btn btn-sm btn-outline-smoke">
                                     <i class="fa-duotone fa-books"></i>
                                 </a>
-                                <a href="#" class="btn btn-sm btn-outline-smoke">
+                                <a href="{{route('edit-studio', [$semester->id,$studio->id])}}" class="btn btn-sm btn-outline-smoke">
                                     <i class="fa-duotone fa-pen-to-square"></i>
                                 </a>
-                                <a href="#" class="btn btn-sm btn-outline-smoke">
+                                <a href="{{route('delete-studio', [$semester->id,$studio->id])}}" class="btn btn-sm btn-outline-smoke">
                                     <i class="fa-duotone fa-trash"></i>
                                 </a>
                             </th>

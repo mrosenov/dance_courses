@@ -25,8 +25,8 @@
                 <fieldset class="border p-2">
                     <legend class="float-none w-auto p-2" style="color: #31343d;font-size: 15px;font-weight: 600;display: inline-block;margin-bottom: 0.5rem;">Additional Options</legend>
                     <div class="custom-control custom-checkbox d-inline-block">
-                        <input name="active" type="checkbox" class="custom-control-input" id="DanceActive" value="1" @if($style->active) checked @endif>
-                        <label class="custom-control-label" for="DanceActive">Active</label>
+                        <input name="active" type="checkbox" class="custom-control-input" id="Active" value="1" @if($style->active) checked @endif>
+                        <label class="custom-control-label" for="Active">Active</label>
                     </div>
 
                 </fieldset>

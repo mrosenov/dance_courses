@@ -9,7 +9,7 @@ class StudiosModel extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name','semester'];
     protected $table = "studios";
 
     public function Courses() {

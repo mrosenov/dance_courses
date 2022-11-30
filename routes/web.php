@@ -61,10 +61,16 @@ Route::group(['middleware' => ['auth']], function() {
 
     // Studios
     Route::get('admin/semesters/{semester:id}/studios', [DashboardController::class, 'index_Studios'])->name('semester')->middleware('admin');
-    Route::get('admin/studios/{studio:id}', [StudiosController::class, 'index_courses'])->name('studio')->middleware('admin');
+    Route::get('admin/semesters/{semester:id}/studios/add', [DashboardController::class, 'add_form_Studio'])->name('add-studio')->middleware('admin');
+    Route::get('admin/semesters/{semester:id}/studios/{studio:id}/edit', [DashboardController::class, 'edit_form_Studio'])->name('edit-studio')->middleware('admin');
+
+    Route::post('admin/semesters/{semester:id}/studios/add', [StudiosController::class, 'store'])->name('store-studio')->middleware('admin');
+    Route::patch('admin/semesters/{semester:id}/studios/{studio:id}/edit', [StudiosController::class, 'update'])->name('update-studio')->middleware('admin');
+    Route::get('admin/semesters/{semester:id}/studios/{studio:id}/delete', [StudiosController::class, 'destroy'])->name('delete-studio')->middleware('admin');
 
     // Courses
     Route::get('admin/courses/{course:id}', [CoursesController::class, 'index'])->name('course')->middleware('admin');
+    Route::get('admin/semesters/{semester:id}/studios/{studio:id}/courses', [DashboardController::class, 'index_Courses'])->name('studio')->middleware('admin');
 
     // Semester Calendar
     Route::get('admin/calendar', [SemestersCalendarController::class, 'index'])->name('calendar')->middleware('admin');
