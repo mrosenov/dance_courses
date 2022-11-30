@@ -6,12 +6,13 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Validation\Rules;
+use Illuminate\Validation\Rules\Password;
 
 class UsersController extends Controller
 {
     // Methods
     public function update($id, Request $request, User $users) {
+
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required',
@@ -22,8 +23,6 @@ class UsersController extends Controller
             'phone' => 'required',
             'birthday' => 'required',
             'role' => 'required',
-            'password' => Rules\Password::defaults(),
-            'confirm_password' => Rules\Password::defaults(),
         ]);
 
         $user = $users->find($id);

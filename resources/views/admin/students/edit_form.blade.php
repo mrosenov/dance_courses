@@ -71,8 +71,9 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text mdi mdi-calendar"></span>
                         </div>
-                        <input name="birthday" type="datetime-local" class="form-control" data-mask="00/00/0000" value="{{$student->birthday}}" required>
+                        <input name="birthday" type="date" class="form-control" data-mask="00/00/0000" value="{{$student->birthday}}" required>
                     </div>
+
                 </fieldset>
 
                 <fieldset class="border p-2">

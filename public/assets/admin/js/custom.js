@@ -349,7 +349,7 @@ $(document).ready(function() {
       "lengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]],
       "scrollX": false,
       "autoWidth": true,
-      "order": [[2, "desc"]],
+      "order": [[0, "asc"]],
       "columnDefs": [{
         "orderable": false,
         "targets": [6]
