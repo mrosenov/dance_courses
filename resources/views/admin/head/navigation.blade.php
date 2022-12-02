@@ -14,14 +14,14 @@
                         <span class="nav-text">Home</span>
                     </a>
                 </li>
-                <li class="has-sub {{Route::currentRouteNamed(['semesters','semester','studio','courses','course','add-semester','edit-semester']) ?  'active' : ''}} {{Route::currentRouteNamed(['semesters']) ?  'expand' : ''}}">
-                    <a class="sidenav-item-link {{Route::currentRouteNamed(['semesters','semester','studio','courses','course','add-semester','edit-semester']) ?  '' : 'collapsed'}}" href="javascript:void(0)" data-toggle="collapse" data-target="#semesters" aria-expanded="{{Route::currentRouteNamed(['semesters']) ?  'true' : 'false'}}">
+                <li class="has-sub {{Route::currentRouteNamed(['semesters','semester','studio','courses','course','add-semester','edit-semester','add-course','edit-course']) ?  'active' : ''}} {{Route::currentRouteNamed(['semesters']) ?  'expand' : ''}}">
+                    <a class="sidenav-item-link {{Route::currentRouteNamed(['semesters','semester','studio','courses','course','add-semester','edit-semester','add-course','edit-course']) ?  '' : 'collapsed'}}" href="javascript:void(0)" data-toggle="collapse" data-target="#semesters" aria-expanded="{{Route::currentRouteNamed(['semesters']) ?  'true' : 'false'}}">
                         <i class="fa-duotone fa-book"></i>
                         <span class="nav-text">Semesters</span> <b class="caret"></b>
                     </a>
-                    <ul class="collapse {{Route::currentRouteNamed(['semesters','semester','studio','courses','course','add-semester','edit-semester']) ?  'show' : ''}}" id="semesters" data-parent="#sidebar-menu" style="">
+                    <ul class="collapse {{Route::currentRouteNamed(['semesters','semester','studio','courses','course','add-semester','edit-semester','add-course','edit-course']) ?  'show' : ''}}" id="semesters" data-parent="#sidebar-menu" style="">
                         <div class="sub-menu">
-                            <li class="{{Route::currentRouteNamed(['semesters','semester','studio','courses','course','add-semester','edit-semester']) ?  'active' : ''}}">
+                            <li class="{{Route::currentRouteNamed(['semesters','semester','studio','courses','course','add-semester','edit-semester','add-course','edit-course']) ?  'active' : ''}}">
                                 <a class="sidenav-item-link" href="{{route('semesters')}}">
                                     <span class="nav-text">List of Semesters</span>
                                 </a>
@@ -44,7 +44,7 @@
                         <div class="sub-menu">
                             <li class="{{Route::currentRouteNamed(['users','edit-user']) ?  'active' : ''}}">
                                 <a class="sidenav-item-link" href="{{route('users')}}">
-                                    <span class="nav-text">List of all users</span>
+                                    <span class="nav-text">List of all Admins</span>
                                 </a>
                             </li>
                             <li class="{{Route::currentRouteNamed(['teachers','edit-teacher']) ?  'active' : ''}}">

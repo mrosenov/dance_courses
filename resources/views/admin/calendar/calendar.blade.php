@@ -50,7 +50,7 @@
                                         <p class="text-dark font-weight-medium">Age Group: {{$course->Course->AgeGroup->name}}</p>
                                         <p class="text-dark font-weight-medium">Duration: {{$course->Course->course_start}} - {{$course->Course->course_end}}</p>
                                         <p class="text-dark font-weight-medium">Students: 1</p>
-                                        <a href="{{route('course', $course->Course->id)}}" class="btn btn-sm btn-success w-100">View Course</a>
+                                        <a href="{{route('course', [$semester->id,$studio->id,$course->Course->id])}}" class="btn btn-sm btn-success w-100">View Course</a>
                                     </td>
                                 </tr>
                             @endif
@@ -73,7 +73,7 @@
                                     <p class="text-dark font-weight-medium">Age Group: {{$course->Course->AgeGroup->name}}</p>
                                     <p class="text-dark font-weight-medium">Duration: {{$course->Course->course_start}} - {{$course->Course->course_end}}</p>
                                     <p class="text-dark font-weight-medium">Students: 1</p>
-                                    <a href="{{route('course', $course->Course->id)}}" class="btn btn-sm btn-success w-100">View Course</a>
+                                    <a href="{{route('course', [$semester->id,$studio->id,$course->Course->id])}}" class="btn btn-sm btn-success w-100">View Course</a>
                                 </td>
 
                             </tr>
@@ -97,7 +97,7 @@
                                     <p class="text-dark font-weight-medium">Age Group: {{$course->Course->AgeGroup->name}}</p>
                                     <p class="text-dark font-weight-medium">Duration: {{$course->Course->course_start}} - {{$course->Course->course_end}}</p>
                                     <p class="text-dark font-weight-medium">Students: 1</p>
-                                    <a href="{{route('course', $course->Course->id)}}" class="btn btn-sm btn-success w-100">View Course</a>
+                                    <a href="{{route('course', [$semester->id,$studio->id,$course->Course->id])}}" class="btn btn-sm btn-success w-100">View Course</a>
                                 </td>
                             </tr>
                         @endif
@@ -120,7 +120,7 @@
                                     <p class="text-dark font-weight-medium">Age Group: {{$course->Course->AgeGroup->name}}</p>
                                     <p class="text-dark font-weight-medium">Duration: {{$course->Course->course_start}} - {{$course->Course->course_end}}</p>
                                     <p class="text-dark font-weight-medium">Students: 1</p>
-                                    <a href="{{route('course', $course->Course->id)}}" class="btn btn-sm btn-success w-100">View Course</a>
+                                    <a href="{{route('course', [$semester->id,$studio->id,$course->Course->id])}}" class="btn btn-sm btn-success w-100">View Course</a>
                                 </td>
                             </tr>
                         @endif
@@ -143,7 +143,7 @@
                                     <p class="text-dark font-weight-medium">Age Group: {{$course->Course->AgeGroup->name}}</p>
                                     <p class="text-dark font-weight-medium">Duration: {{$course->Course->course_start}} - {{$course->Course->course_end}}</p>
                                     <p class="text-dark font-weight-medium">Students: 1</p>
-                                    <a href="{{route('course', $course->Course->id)}}" class="btn btn-sm btn-success w-100">View Course</a>
+                                    <a href="{{route('course', [$semester->id,$studio->id,$course->Course->id])}}" class="btn btn-sm btn-success w-100">View Course</a>
                                 </td>
                             </tr>
                         @endif

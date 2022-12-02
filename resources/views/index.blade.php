@@ -6,7 +6,7 @@
     <div class="owl-carousel">
         @foreach($banners as $banner)
             <div>
-                <a href="{{$banner->url}}"><img src="{{asset('storage/' . $banner->file_name)}}"></a>
+                <a href="{{$banner->url}}"><img src="{{asset($banner->file_path)}}"></a>
                 <div class="slide_caption">
                     <div class="container">
                         <h2 class="banner_title">{{$banner->title}}</h2>

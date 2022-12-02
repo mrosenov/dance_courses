@@ -5,7 +5,7 @@
         <ol class="breadcrumb breadcrumb-light">
             <li class="breadcrumb-item"><a href="{{route('admin')}}">Home</a></li>
             <li class="breadcrumb-item" aria-current="page"><a href="{{route('age-groups')}}">Age Groups</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Add Age Group</li>
+            <li class="breadcrumb-item active" aria-current="page">{{$agegroup->name}}</li>
         </ol>
     </nav>
     <div class="card card-default">

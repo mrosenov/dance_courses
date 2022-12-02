@@ -6,8 +6,7 @@
             <li class="breadcrumb-item"><a href="{{route('admin')}}">Home</a></li>
             <li class="breadcrumb-item"><a href="{{route('semesters')}}">List of Semesters</a></li>
             <li class="breadcrumb-item"><a href="{{route('semester', $studio->Semester->id)}}">{{$studio->Semester->name}}</a></li>
-            <li class="breadcrumb-item"><a href="{{route('studio', [$studio->Semester->id,$studio->id])}}">{{$studio->name}}</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Courses</li>
+            <li class="breadcrumb-item active" aria-current="page">{{$studio->name}}</li>
         </ol>
     </nav>
     <div class="card card-default">
@@ -15,7 +14,7 @@
             <h2>List of all courses for {{$studio->name}}</h2>
         </div>
         <div class="card-body">
-            <a href="#" class="btn btn-sm btn-success mb-2">Add new course</a>
+            <a href="{{route('add-course', [$studio->Semester->id,$studio->id])}}" class="btn btn-sm btn-success mb-2">Add new course</a>
             <table class="table table-striped table-bordered" style="text-align: center;">
                 <thead>
                 <tr>
@@ -38,10 +37,11 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($courses as $course)
+
+                @foreach($studio->Courses as $course)
                     <tr>
                         <td scope="row" style="vertical-align: middle">{{$course->id}}</td>
-                        <td style="vertical-align: middle"><a href="{{route('course', $course->id)}}">{{$course->name}}</a></td>
+                        <td style="vertical-align: middle"><a href="{{route('course', [$studio->Semester->id, $studio->id, $course->id])}}">{{$course->name}}</a></td>
                         <td style="vertical-align: middle"><a href="#">{{$course->DanceStyle->name}}</a></td>
                         <td style="vertical-align: middle"><a href="#">{{$course->Teacher->UserInfo->name}}</a></td>
                         <td style="vertical-align: middle"><a href="#">{{$course->AgeGroup->name}}</a></td>
@@ -53,13 +53,13 @@
                         <td style="vertical-align: middle">{{$course->weekday}}</td>
                         <td style="vertical-align: middle">{{ $course->active ? 'Active' : 'Not Active' }}</td>
                         <th class="text-center" style="vertical-align: middle">
-                            <a href="{{route('course', $course->id)}}" class="btn btn-sm btn-outline-smoke">
+                            <a href="{{route('course', [$studio->Semester->id, $studio->id, $course->id])}}" class="btn btn-sm btn-outline-smoke">
                                 <i class="fa-duotone fa-screen-users"></i>
                             </a>
-                            <a href="#" class="btn btn-sm btn-outline-smoke">
+                            <a href="{{route('edit-course', [$studio->Semester->id, $studio->id, $course->id])}}" class="btn btn-sm btn-outline-smoke">
                                 <i class="fa-duotone fa-pen-to-square"></i>
                             </a>
-                            <a href="#" class="btn btn-sm btn-outline-smoke">
+                            <a href="{{route('delete-course', [$studio->Semester->id, $studio->id, $course->id])}}" class="btn btn-sm btn-outline-smoke">
                                 <i class="fa-duotone fa-trash"></i>
                             </a>
                         </th>

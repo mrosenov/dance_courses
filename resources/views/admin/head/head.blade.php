@@ -7,7 +7,7 @@
 
     <!-- GOOGLE FONTS -->
     <link href="{{asset('assets/admin/css/css?family=Karla:400,700|Roboto')}}" rel="stylesheet">
-    <link href="{{asset('assets/admin/plugins/material/css/materialdesignicons.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@mdi/font@6.9.96/css/materialdesignicons.min.css">
     <link href="{{asset('assets/admin/plugins/simplebar/simplebar.css')}}" rel="stylesheet">
 
     <link href="{{asset('assets/admin/plugins/nprogress/nprogress.css')}}" rel="stylesheet">

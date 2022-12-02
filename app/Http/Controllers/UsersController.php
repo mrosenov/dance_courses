@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TeachersModel;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Validation\Rules\Password;
 
 class UsersController extends Controller
 {
@@ -39,13 +39,34 @@ class UsersController extends Controller
         $user->contactpersonphone = $request->contactpersonphone;
         $user->role = $request->role;
 
+        if ($request->role == 'Teacher') {
+            $teacher = new TeachersModel();
+
+            $teacher->user = $user->id;
+            $teacher->dance_style = $request->dance_style;
+            $teacher->description = $request->short_description;
+            $teacher->save();
+        }
+        else {
+            $teacher = TeachersModel::where('user', $user->id);
+            $teacher->delete();
+        }
+
         if (!empty($request->password) && !empty($request->confirm_password)) {
             $user->password = Hash::make($request->password);
         }
 
         $user->update();
 
-        return redirect::back()->with('success', $user->name.' have been successfully updated.');
+        if ($request->role == 'Admin') {
+            return redirect::route('edit-user', $user->id)->with('success', $user->name.' have been successfully updated.');
+        }
+        elseif ($request->role == 'Teacher') {
+            return redirect::route('edit-teacher', $user->id)->with('success', $user->name.' have been successfully updated.');
+        }
+        elseif ($request->role == 'Student') {
+            return redirect::route('edit-student', $user->id)->with('success', $user->name.' have been successfully updated.');
+        }
     }
 
     public function destroy($id, User $users) {

@@ -99,23 +99,60 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text mdi mdi-account-group-outline"></span>
                         </div>
-                        <select class="form-control" name="role" required>
+                        <select class="form-control" onchange="RoleCheck(this);" name="role" required>
                             <option value="Admin" @if($teacher->role == 'Admin') selected @endif>Admin</option>
                             <option value="Teacher" @if($teacher->role == 'Teacher') selected @endif>Teacher</option>
                             <option value="Student" @if($teacher->role == 'Student') selected @endif>Student</option>
                         </select>
                     </div>
 
+                    <fieldset class="border p-2 mb-2" id="TeacherOptions" @if($teacher->role != 'Teacher')style="display: none;" @endif>
+                        <legend class="float-none w-auto p-2" style="color: #31343d;font-size: 15px;font-weight: 600;display: inline-block;margin-bottom: 0.5rem;">Teacher's Options</legend>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text mdi mdi-dance-ballroom"></span>
+                                </div>
+                                <select class="form-control" name="dance_style" required>
+                                    <option value="0" selected>None</option>
+                                    @foreach($dances as $dance)
+                                        <option value="{{$dance->id}}" @if($teacher->getTeacherInfo->dance_style == $dance->id) selected @endif>{{$dance->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text mdi mdi-cursor-text"></span>
+                                </div>
+                                <input name="short_description" type="text" class="form-control" placeholder="Short description for teacher." value="{{$teacher->getTeacherInfo->description}}">
+                            </div>
+
+                            <div class="custom-control custom-checkbox d-inline-block">
+                                <input name="active" type="checkbox" class="custom-control-input" id="Active" value="1" @if($teacher->getTeacherInfo->active) checked @endif>
+                                <label class="custom-control-label" for="Active">Active</label>
+                            </div>
+                    </fieldset>
+
+                    <script>
+                        function RoleCheck(that) {
+                            if (that.value == "Teacher") {
+                                document.getElementById("TeacherOptions").style.display = "block";
+                            } else {
+                                document.getElementById("TeacherOptions").style.display = "none";
+                            }
+                        }
+                    </script>
+
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text mdi mdi-textbox-password"></span>
+                            <span class="input-group-text mdi mdi-form-textbox-password"></span>
                         </div>
                         <input name="password" type="text" class="form-control" placeholder="New Password">
                     </div>
 
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text mdi mdi-textbox-password"></span>
+                            <span class="input-group-text mdi mdi-form-textbox-password"></span>
                         </div>
                         <input name="confirm_password" type="text" class="form-control" placeholder="Confirm Password">
                     </div>

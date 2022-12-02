@@ -10364,7 +10364,7 @@ label {
   font-size: 1.25rem;
   border: none; }
   .sidebar li > a .caret:before {
-    content: '\f142';
+    content: '\F0054';
     display: block;
     text-align: center;
     transition: all .2s linear;
@@ -11788,7 +11788,7 @@ table.dataTable thead .sorting {
       color: #ffffff; }
 
 .breadcrumb-item + .breadcrumb-item::before {
-  content: '\f142';
+  content: '\F0054';
   font-family: "Material Design Icons"; }
 
 /*===== EMAIL =====*/

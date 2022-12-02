@@ -4,8 +4,8 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb breadcrumb-light">
             <li class="breadcrumb-item"><a href="{{route('admin')}}">Home</a></li>
-            <li class="breadcrumb-item"><a href="{{route('semester', $course->Semester->id)}}">Semester {{$course->Semester->id}}</a></li>
-            <li class="breadcrumb-item"><a href="{{route('studio', $course->Studio->id)}}">{{$course->Studio->name}}</a></li>
+            <li class="breadcrumb-item"><a href="{{route('semester', $course->Semester->id)}}">{{$course->Semester->name}}</a></li>
+            <li class="breadcrumb-item"><a href="{{route('studio', [$course->Semester->id, $course->Studio->id])}}">{{$course->Studio->name}}</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{$course->name}}</li>
         </ol>
     </nav>

@@ -53,12 +53,4 @@ class StudiosController extends Controller
 
         return redirect::back()->with('success', $studio->name.' have been successfully deleted.');
     }
-
-    public function getCourses($id) {
-        return StudiosModel::find($id)->Courses;
-    }
-
-    public function getStudio($id) {
-        return StudiosModel::find($id);
-    }
 }

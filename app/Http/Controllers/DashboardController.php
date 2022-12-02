@@ -9,10 +9,12 @@ use App\Models\AgeGroupsModel;
 use App\Models\BannersModel;
 use App\Models\BlogCategoriesModel;
 use App\Models\BlogPostsModel;
+use App\Models\CoursesModel;
 use App\Models\DanceStylesModel;
 use App\Models\SemestersHolidaysModel;
 use App\Models\SemestersModel;
 use App\Models\StudiosModel;
+use App\Models\TeachersModel;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Monarobase\CountryList\CountryListFacade;
@@ -71,12 +73,37 @@ class DashboardController extends Controller
         ]);
     }
 
-    public function index_Courses($id,StudiosModel $studios) {
-        $studio = (new StudiosController);
+    public function index_Courses($semesterID,$studioID,StudiosModel $studios) {
+        $studio = $studios->find($studioID);
 
         return view('admin.courses.index', [
-            'studio' => $studio->getStudio($id),
-            'courses' => $studio->getCourses($id),
+            'studio' => $studio,
+        ]);
+    }
+
+    public function add_form_Course($semesterID,$studioID,DanceStylesModel $dances, TeachersModel $teachers, AgeGroupsModel $AgeGroups, SemestersModel $semesters, StudiosModel $studios) {
+        $semester = $semesters->find($semesterID);
+        $studio = $studios->find($studioID);
+
+        return view('admin.courses.add_form', [
+            'dances' => $dances->get(),
+            'teachers' => $teachers->get(),
+            'AgeGroups' => $AgeGroups->get(),
+            'semester' => $semester,
+            'studio' => $studio,
+        ]);
+    }
+
+    public function edit_form_Course($semesterID,$studioID,$courseID,CoursesModel $courses,DanceStylesModel $dances, TeachersModel $teachers, AgeGroupsModel $AgeGroups, SemestersModel $semesters, StudiosModel $studios) {
+        $course = $courses->find($courseID);
+
+        return view('admin.courses.edit_form', [
+            'course' => $course,
+            'dances' => $dances->get(),
+            'teachers' => $teachers->get(),
+            'AgeGroups' => $AgeGroups->get(),
+            'semesters' => $semesters->get(),
+            'studios' => $studios->get(),
         ]);
     }
 
@@ -84,7 +111,7 @@ class DashboardController extends Controller
         $AgeGroup = (new AgeGroupsController);
 
         return view('admin.users.index', [
-            'users' => $this->getUserList(),
+            'users' => $this->getUserList()->where('role', 'Admin'),
             'AgeGroup' => $AgeGroup,
         ]);
     }
@@ -92,10 +119,12 @@ class DashboardController extends Controller
     public function edit_form_Users($id, User $users) {
         $user = $users->find($id);
         $countries = CountryListFacade::getList('en');
+        $dances = (new DanceStylesController);
 
         return view('admin.users.edit_form',[
             'user' => $user,
             'countries' => $countries,
+            'dances' => $dances->getDanceStylesList(),
         ]);
     }
 
@@ -111,10 +140,12 @@ class DashboardController extends Controller
     public function edit_form_Teachers($id, User $users) {
         $teacher = $users->find($id);
         $countries = CountryListFacade::getList('en');
+        $dances = (new DanceStylesController);
 
         return view('admin.teachers.edit_form',[
             'teacher' => $teacher,
             'countries' => $countries,
+            'dances' => $dances->getDanceStylesList(),
         ]);
     }
 
@@ -130,10 +161,12 @@ class DashboardController extends Controller
     public function edit_form_Students($id, User $users) {
         $student = $users->find($id);
         $countries = CountryListFacade::getList('en');
+        $dances = (new DanceStylesController);
 
         return view('admin.students.edit_form',[
             'student' => $student,
             'countries' => $countries,
+            'dances' => $dances->getDanceStylesList(),
         ]);
     }
 
