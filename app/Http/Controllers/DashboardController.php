@@ -132,7 +132,7 @@ class DashboardController extends Controller
         $AgeGroup = (new AgeGroupsController);
 
         return view('admin.teachers.index', [
-            'teachers' => $this->getTeachersList(),
+            'teachers' => $this->getUserList()->where('role', 'Teacher'),
             'AgeGroup' => $AgeGroup,
         ]);
     }
@@ -153,7 +153,7 @@ class DashboardController extends Controller
         $AgeGroup = (new AgeGroupsController);
 
         return view('admin.students.index', [
-            'students' => $this->getStudentsList(),
+            'students' => $this->getUserList()->where('role', 'Student'),
             'AgeGroup' => $AgeGroup,
         ]);
     }
@@ -316,15 +316,4 @@ class DashboardController extends Controller
         $users = User::all();
         return $users;
     }
-
-    public function getTeachersList() {
-        $teachers = User::get()->where('role', 'Teacher');
-        return $teachers;
-    }
-
-    public function getStudentsList() {
-        $students = User::get()->where('role', 'Student');
-        return $students;
-    }
-
 }
