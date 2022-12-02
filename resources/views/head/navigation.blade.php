@@ -3,7 +3,7 @@
         <div class="col-lg-4 col-xl-3 col-md-6 col-6">
             <div class="logo">
                 <a href="index.html">
-                    <img class="logo-light" src="assets/images/logo/logo.png" alt="Site Logo">
+                    <img class="logo-light" src="{{asset($settings->logo)}}" alt="Site Logo">
                 </a>
             </div>
         </div>

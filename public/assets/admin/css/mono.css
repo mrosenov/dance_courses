@@ -10340,6 +10340,7 @@ label {
         overflow: hidden; } }
     .app-brand a img {
       max-width: 128px;
+      max-height: 50px;
       vertical-align: middle; }
   .app-brand .brand-name {
     color: #ffffff;

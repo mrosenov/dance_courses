@@ -2,8 +2,8 @@
     <div id="sidebar" class="sidebar sidebar-with-footer">
         <div class="app-brand">
             <a href="index.html">
-                <img src="{{asset('assets/admin/img/logo.png')}}" alt="Mono">
-                <span class="brand-name">MONO</span>
+                <img src="{{asset($settings->logo)}}" alt="Mono">
+                <span class="brand-name">{{$settings->name}}</span>
             </a>
         </div>
         <div class="sidebar-left" data-simplebar="" style="height: 100%;">

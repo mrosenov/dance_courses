@@ -10,9 +10,18 @@
 
     <div class="card card-default">
         <div class="card-body">
-            <form method="POST" action="{{route('update-site')}}">
+            <form method="POST" action="{{route('update-site')}}" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="form-group">
                     <label for="SiteName">Site name</label>
                     <input type="text" name="sitename" class="form-control rounded-0" id="SiteName" placeholder="Site Name" value="{{ $settings->name }}" required>
@@ -51,6 +60,18 @@
                     <label for="SiteVAT">VAT ID</label>
                     <input type="text" name="sitevatid" class="form-control rounded-0" id="SiteVAT" placeholder="Site Vat ID" value="{{ $settings->VATNumber }}" required>
                 </div>
+
+                <div class="form-group">
+                    <label for="SiteLogo">Site Logo</label>
+                    <input type="file" name="site_logo" class="form-control-file" id="SiteLogo">
+                </div>
+
+                @if($settings->logo)
+                <fieldset class="border p-2 mb-2">
+                    <legend class="float-none w-auto p-2" style="color: #31343d;font-size: 15px;font-weight: 600;display: inline-block;margin-bottom: 0.5rem;">Logo Preview</legend>
+                    <img src="{{asset($settings->logo)}}">
+                </fieldset>
+                @endif
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
