@@ -7,7 +7,7 @@
                     <div class="edu-footer-widget">
                         <div class="logo">
                             <a href="index.html">
-                                <img class="logo-light" src="assets/images/logo/logo-white.png" alt="Site Logo">
+                                <img class="logo-light" src="{{asset($settings->logo)}}" alt="Site Logo">
                             </a>
                         </div>
                         <p class="description">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum.</p>
@@ -72,10 +72,10 @@
 
             <div class="shape-dot-wrapper shape-wrapper d-md-block d-none">
                 <div class="shape-image shape-image-1">
-                    <img src="assets/images/shapes/shape-21-01.png" alt="Shape Thumb" />
+                    <img src="{{asset('assets/images/shapes/shape-21-01.png')}}" alt="Shape Thumb" />
                 </div>
                 <div class="shape-image shape-image-2">
-                    <img src="assets/images/shapes/shape-35.png" alt="Shape Thumb" />
+                    <img src="{{asset('assets/images/shapes/shape-35.png')}}" alt="Shape Thumb" />
                 </div>
             </div>
         </div>

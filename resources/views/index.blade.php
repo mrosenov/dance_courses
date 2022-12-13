@@ -24,6 +24,7 @@
 
 @section('index_posts')
     <!-- Start Blog Area  -->
+    @if(count($posts) > 0)
     <div class="eduvibe-home-two-blog edu-blog-area edu-section-gap bg-image">
         <div class="wrapper">
             <div class="container eduvibe-animated-shape">
@@ -38,6 +39,7 @@
                 <div class="row g-5 mt--30">
 
                     <!-- Start Blog Grid  -->
+                    @foreach($posts as $post)
                     <div class="col-lg-4 col-md-6 col-12" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
                         <div class="edu-blog blog-type-2 bg-white radius-small">
                             <div class="inner">
@@ -48,23 +50,23 @@
                                 </div>
                                 <div class="content">
                                     <div class="status-group">
-                                        <a href="#" class="eduvibe-status status-05"><i class="icon-price-tag-3-line"></i> Education</a>
+                                        <a href="#" class="eduvibe-status status-05"><i class="icon-price-tag-3-line"></i> {{$post->getCategory->name}}</a>
                                     </div>
-                                    <h5 class="title"><a href="blog-details.html">Introduction to Javascript for the Beginners</a></h5>
+                                    <h5 class="title"><a href="blog-details.html">{{$post->name}}</a></h5>
                                     <div class="blog-card-bottom">
                                         <ul class="blog-meta">
-                                            <li><i class="icon-calendar-2-line"></i>06 Nov, 2022</li>
+                                            <li><i class="icon-calendar-2-line"></i>{{$post->created_at}}</li>
                                         </ul>
                                         <div class="read-more-btn">
-                                            <a class="btn-transparent" href="blog-details.html">Read More<i class="icon-arrow-right-line-right"></i></a>
+                                            <a class="btn-transparent" href="{{route('view-post', $post->slug)}}">Read More<i class="icon-arrow-right-line-right"></i></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    @endforeach
                     <!-- End Blog Grid  -->
-
                 </div>
 
                 <div class="shape-dot-wrapper shape-wrapper d-xl-block d-none">
@@ -86,8 +88,10 @@
                     <img src="assets/images/shapes/shape-24.png" alt="Shape Thumb" />
                 </div>
             </div>
+
         </div>
     </div>
+    @endif
     <!-- End Blog Area  -->
 @endsection
 

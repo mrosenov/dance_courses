@@ -10,6 +10,7 @@
 
     @yield('login_section')
     @yield('register_section')
+    @yield('section')
 
 @include('footer.footer')
 </div>

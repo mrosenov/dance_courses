@@ -45,7 +45,7 @@
                     <input name="active_to" type="datetime-local" class="form-control" data-mask="00/00/0000" value="{{$banner->active_to}}" required>
                 </div>
                 <div class="form-group">
-                    <img class="img-fluid img-thumbnail" src="{{asset('storage/' . $banner->file_name)}}">
+                    <img class="img-fluid img-thumbnail" src="{{asset($banner->file_path)}}">
                 </div>
                 <div class="form-group">
                     <label for="banner_image">Image</label>

@@ -3,7 +3,7 @@
         <div class="header-top">
             <div class="logo">
                 <a href="index.html">
-                    <img src="assets/images/logo/logo.png" alt="Site Logo">
+                    <img src="{{asset($settings->logo)}}" alt="Site Logo">
                 </a>
             </div>
             <div class="close-menu">
