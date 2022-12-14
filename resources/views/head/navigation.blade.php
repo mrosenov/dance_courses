@@ -16,6 +16,7 @@
                             <li><a href="course-style-1.html">Course Style 1</a></li>
                         </ul>
                     </li>
+                    <li><a href="{{route('blog')}}">Blog</a></li>
                 </ul>
             </nav>
         </div>

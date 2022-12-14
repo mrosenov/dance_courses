@@ -9,6 +9,16 @@ use Illuminate\Support\Facades\Redirect;
 
 class BlogCategoriesController extends Controller
 {
+    // Views
+    public function view_category($slug, BlogCategoriesModel $categories) {
+        $category = $categories->where('slug', $slug)->first();
+        $posts = $category->getPosts()->paginate(12);
+        return view('category', [
+            'category' => $category,
+            'posts' => $posts,
+        ]);
+    }
+
     // Methods
     public function store(Request $request) {
         $this->validate($request, [

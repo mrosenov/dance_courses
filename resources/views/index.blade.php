@@ -44,15 +44,15 @@
                         <div class="edu-blog blog-type-2 bg-white radius-small">
                             <div class="inner">
                                 <div class="thumbnail">
-                                    <a href="blog-details.html">
+                                    <a href="{{route('view-post', $post->slug)}}">
                                         <img src="assets/images/blog/post-01/post-01.jpg" alt="Blog Images">
                                     </a>
                                 </div>
                                 <div class="content">
                                     <div class="status-group">
-                                        <a href="#" class="eduvibe-status status-05"><i class="icon-price-tag-3-line"></i> {{$post->getCategory->name}}</a>
+                                        <a href="{{route('view-category', $post->getCategory->slug)}}" class="eduvibe-status status-05"><i class="icon-price-tag-3-line"></i> {{$post->getCategory->name}}</a>
                                     </div>
-                                    <h5 class="title"><a href="blog-details.html">{{$post->name}}</a></h5>
+                                    <h5 class="title"><a href="{{route('view-post', $post->slug)}}">{{$post->name}}</a></h5>
                                     <div class="blog-card-bottom">
                                         <ul class="blog-meta">
                                             <li><i class="icon-calendar-2-line"></i>{{$post->created_at}}</li>

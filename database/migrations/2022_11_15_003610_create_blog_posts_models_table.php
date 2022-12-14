@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedInteger('category')->index();
             $table->unsignedInteger('author')->index();
             $table->timestamps();
+            $table->tinyInteger('active')->nullable();
 
             $table->foreign('category')->references('id')->on('blog_categories')->onDelete('cascade');
             $table->foreign('author')->references('id')->on('users')->onDelete('cascade');

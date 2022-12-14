@@ -6,7 +6,6 @@
 @include('head.navigation')
 @include('head.mobile_navigation')
 @include('head.search_popup')
-@include('head.breadcrumb')
 
     @yield('login_section')
     @yield('register_section')

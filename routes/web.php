@@ -16,6 +16,7 @@ use \App\Http\Controllers\BlogCategoriesController;
 use \App\Http\Controllers\DanceStylesController;
 use \App\Http\Controllers\AgeGroupsController;
 use \App\Http\Controllers\UsersController;
+use \App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,12 +29,11 @@ use \App\Http\Controllers\UsersController;
 |
 */
 
-Route::get('/', function () {
-    $banners = (new BannersController);
-    return view('index', [
-        'banners' => $banners->getBanners(),
-    ]);
-})->name('home');
+Route::get('/', [HomeController::class, 'index_home'])->name('home');
+
+Route::get('blog', [BlogPostsController::class, 'view_posts'])->name('blog');
+Route::get('blog/post/{post:slug}', [BlogPostsController::class, 'view_post'])->name('view-post');
+Route::get('blog/category/{category:slug}', [BlogCategoriesController::class, 'view_category'])->name('view-category');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

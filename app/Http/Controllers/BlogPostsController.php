@@ -8,6 +8,25 @@ use Illuminate\Support\Facades\Redirect;
 
 class BlogPostsController extends Controller
 {
+    // Views
+    public function view_posts(BlogPostsModel $posts) {
+        return view('posts', [
+            'posts' => $posts->paginate(12),
+        ]);
+    }
+
+    public function view_post($slug, BlogPostsModel $posts) {
+        $post = $posts->where('slug', $slug)->first();
+        $previous = $posts->where('id', '<', $post->id)->first();
+        $next = $posts->where('id', '>', $post->id)->first();
+        return view('post', [
+            'post' => $post,
+            'previous_post' => $previous,
+            'next_post' => $next,
+        ]);
+    }
+
+
     // Methods
     public function store($id,Request $request) {
         $this->validate($request, [
@@ -54,8 +73,8 @@ class BlogPostsController extends Controller
         return redirect::back()->with('success', $post->name.' have been deleted successfully');
     }
 
-    public function getBlogPostsList() {
-        $Posts = BlogPostsModel::get();
+    public function getPostsList() {
+        $Posts = BlogPostsModel::orderBy('created_at', 'desc')->get();
         return $Posts;
     }
 }
