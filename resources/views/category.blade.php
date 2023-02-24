@@ -50,7 +50,6 @@
             <div class="row g-5">
                 <div class="col-lg-12">
                     <div class="row g-5">
-
                         @foreach($posts as $post)
                             <div class="col-lg-4 col-md-6 col-12 sal-animate" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
                                 <div class="edu-blog blog-type-2 radius-small">
@@ -80,7 +79,6 @@
                         @endforeach
                     </div>
                     <div class="row">
-
                         <div class="col-lg-12 mt--60">
                             {{$posts->links()}}
                         </div>
