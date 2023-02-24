@@ -2,9 +2,11 @@
     <div class="row align-items-center">
         <div class="col-lg-4 col-xl-3 col-md-6 col-6">
             <div class="logo">
-                <a href="index.html">
-                    <img class="logo-light" src="{{asset($settings->logo)}}" alt="Site Logo">
-                </a>
+                @if(!empty($settings->logo))
+                    <a href="index.html">
+                        <img class="logo-light" src="{{asset($settings->logo)}}" alt="Site Logo">
+                    </a>
+                @endif
             </div>
         </div>
         <div class="col-lg-6 d-none d-xl-block">

@@ -7,12 +7,12 @@
                     <div class="edu-footer-widget">
                         <div class="logo">
                             <a href="index.html">
-                                <img class="logo-light" src="{{asset($settings->logo)}}" alt="Site Logo">
+                                <img class="logo-light" src="@if(!empty($settings->logo)){{asset($settings->logo)}}@endif" alt="Site Logo">
                             </a>
                         </div>
                         <p class="description">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum.</p>
                         <ul class="social-share">
-                            <li><a href="#"><i class="icon-Fb"></i></a></li>
+                            @if(!empty($settings->facebook))<li><a href="{{$settings->facebook}}"><i class="icon-Fb"></i></a></li>@endif
                             <li><a href="#"><i class="icon-linkedin"></i></a></li>
                             <li><a href="#"><i class="icon-Pinterest"></i></a></li>
                             <li><a href="#"><i class="icon-Twitter"></i></a></li>
@@ -58,11 +58,9 @@
                         <div class="inner">
                             <div class="widget-information">
                                 <ul class="information-list">
-                                    <li><i class="icon-map-pin-line"></i>275 Quadra Street Victoria Road, New York
-                                    </li>
-                                    <li><i class="icon-phone-fill"></i><a href="tel:+1(237)382-2839">+ 1 (237) 382-2839</a></li>
-                                    <li><i class="icon-phone-fill"></i><a href="tel:+1(237)382-2840">+ 1 (237) 382-2840</a></li>
-                                    <li><i class="icon-mail-line-2"></i><a target="_blank" href="mailto:yourmailaddress@example.com">yourmailaddress@example.com</a></li>
+                                    <li><i class="icon-map-pin-line"></i>@if(!empty($settings->address)) {{$settings->address}} @endif</li>
+                                    <li><i class="icon-phone-fill"></i><a href="@if(!empty($settings->phone)) {{$settings->phone}} @endif">@if(!empty($settings->phone)) {{$settings->phone}} @endif</a></li>
+                                    <li><i class="icon-mail-line-2"></i><a target="_blank" href="mailto:@if(!empty($settings->email)) {{$settings->email}} @endif">@if(!empty($settings->email)) {{$settings->email}} @endif</a></li>
                                 </ul>
                             </div>
                         </div>

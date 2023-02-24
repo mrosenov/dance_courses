@@ -24,41 +24,52 @@
                 @endif
                 <div class="form-group">
                     <label for="SiteName">Site name</label>
-                    <input type="text" name="sitename" class="form-control rounded-0" id="SiteName" placeholder="Site Name" value="{{ $settings->name }}" required>
+                    <input type="text" name="sitename" class="form-control rounded-0" id="SiteName" placeholder="Site Name" value="@if(!empty($settings->name)){{ $settings->name }}@endif" required>
                 </div>
 
                 <div class="form-group">
                     <label for="SiteCountry">Country</label>
                     <select name="country" class="form-control rounded-0" id="SiteCountry" required>
+                        @if(!empty($settings->country))
+                            {{$sc = $settings->country}}
+                        @else
+                            {{$sc = 0}}
+                        @endif
+
                         @foreach($countries as $country)
-                            <option value="{{$country}}" @if($country === $settings->country) selected @endif>{{$country}}</option>
+                            <option value="{{$country}}" @if($country === $sc) selected @endif>{{$country}}</option>
                         @endforeach
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="SiteTown">Town</label>
-                    <input type="text" name="sitetown" class="form-control rounded-0" id="SiteTown" placeholder="Site Town" value="{{ $settings->town }}" required>
+                    <input type="text" name="sitetown" class="form-control rounded-0" id="SiteTown" placeholder="Site Town" value="@if(!empty($settings->town)){{ $settings->town }}@endif" required>
                 </div>
 
                 <div class="form-group">
                     <label for="SitePostCode">Post Code</label>
-                    <input type="text" name="sitepostcode" class="form-control rounded-0" id="SitePostCode" placeholder="Post Code" value="{{ $settings->postcode }}" required>
+                    <input type="text" name="sitepostcode" class="form-control rounded-0" id="SitePostCode" placeholder="Post Code" value="@if(!empty($settings->postcode)){{ $settings->postcode }}@endif" required>
                 </div>
 
                 <div class="form-group">
                     <label for="SiteAddress">Address</label>
-                    <input type="text" name="siteaddress" class="form-control rounded-0" id="SiteAddress" placeholder="Address" value="{{ $settings->address }}" required>
+                    <input type="text" name="siteaddress" class="form-control rounded-0" id="SiteAddress" placeholder="Address" value="@if(!empty($settings->address)){{ $settings->address }}@endif" required>
                 </div>
 
                 <div class="form-group">
                     <label for="SiteEmail">Email</label>
-                    <input type="text" name="siteemail" class="form-control rounded-0" id="SiteEmail" placeholder="Site Email" value="{{ $settings->email }}" required>
+                    <input type="text" name="siteemail" class="form-control rounded-0" id="SiteEmail" placeholder="Site Email" value="@if(!empty($settings->email)){{ $settings->email }}@endif" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="SiteEmail">Phone</label>
+                    <input type="text" name="sitephone" class="form-control rounded-0" id="SitePhone" placeholder="Site Phone" value="@if(!empty($settings->phone)){{ $settings->phone }}@endif" required>
                 </div>
 
                 <div class="form-group">
                     <label for="SiteVAT">VAT ID</label>
-                    <input type="text" name="sitevatid" class="form-control rounded-0" id="SiteVAT" placeholder="Site Vat ID" value="{{ $settings->VATNumber }}" required>
+                    <input type="text" name="sitevatid" class="form-control rounded-0" id="SiteVAT" placeholder="Site Vat ID" value="@if(!empty($settings->VATNumber)){{ $settings->VATNumber }}@endif" required>
                 </div>
 
                 <div class="form-group">
@@ -66,7 +77,7 @@
                     <input type="file" name="site_logo" class="form-control-file" id="SiteLogo">
                 </div>
 
-                @if($settings->logo)
+                @if(!empty($settings->logo))
                 <fieldset class="border p-2 mb-2">
                     <legend class="float-none w-auto p-2" style="color: #31343d;font-size: 15px;font-weight: 600;display: inline-block;margin-bottom: 0.5rem;">Logo Preview</legend>
                     <img src="{{asset($settings->logo)}}">
@@ -79,7 +90,7 @@
                             <i class="fa-brands fa-youtube"></i>
                         </div>
                     </div>
-                    <input type="text" name="siteyoutube" class="form-control rounded-0" placeholder="Link to youtube channel" value="{{ $settings->youtube }}">
+                    <input type="text" name="siteyoutube" class="form-control rounded-0" placeholder="Link to youtube channel" value="@if(!empty($settings->youtube)){{ $settings->youtube }}@endif">
                 </div>
 
                 <div class="input-group mb-3">
@@ -88,7 +99,7 @@
                             <i class="fa-brands fa-facebook"></i>
                         </div>
                     </div>
-                    <input type="text" name="sitefacebook" class="form-control rounded-0" placeholder="Link to facebook page" value="{{ $settings->facebook }}">
+                    <input type="text" name="sitefacebook" class="form-control rounded-0" placeholder="Link to facebook page" value="@if(!empty($settings->facebook)){{ $settings->facebook }}@endif">
                 </div>
 
                 <div class="input-group mb-3">
@@ -97,7 +108,7 @@
                             <i class="fa-brands fa-instagram"></i>
                         </div>
                     </div>
-                    <input type="text" name="siteinstagram" class="form-control rounded-0" placeholder="Link to instagram page" value="{{ $settings->instagram }}">
+                    <input type="text" name="siteinstagram" class="form-control rounded-0" placeholder="Link to instagram page" value="@if(!empty($settings->instagram)){{ $settings->instagram }}@endif">
                 </div>
 
                 <div class="form-footer">

@@ -34,23 +34,26 @@ class SiteSettingsController extends Controller
         $site->postcode = $request->sitepostcode;
         $site->address = $request->siteaddress;
         $site->email = $request->siteemail;
+        $site->phone = $request->sitephone;
         $site->VATNumber = $request->sitevatid;
 
         $image = $request->file('site_logo');
 
-        $input['imagename'] = time().'_'.$request->site_logo->getClientOriginalName();
-        $destinationPath = public_path('/thumbnail');
+        if ($request->hasFile($image)) {
+            $input['imagename'] = time() . '_' . $request->site_logo->getClientOriginalName();
+            $destinationPath = public_path('/thumbnail');
 
-        $img = Image::make($image->path());
+            $img = Image::make($image->path());
 
-        $img->resize(221, 244, function ($constraint) {
-            $constraint->aspectRatio();
-        })->save($destinationPath.'/'.$input['imagename']);
+            $img->resize(221, 244, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $input['imagename']);
 
-        $destinationPath = public_path('/tmp');
-        $image->move($destinationPath, $input['imagename']);
+            $destinationPath = public_path('/tmp');
+            $image->move($destinationPath, $input['imagename']);
 
-        $site->logo = '/thumbnail/'.$input['imagename'];
+            $site->logo = '/thumbnail/' . $input['imagename'];
+        }
         $site->youtube = $request->siteyoutube;
         $site->facebook = $request->sitefacebook;
         $site->instagram = $request->siteinstagram;

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('postcode');
             $table->string('address');
             $table->string('email');
+            $table->string('phone');
             $table->string('VATNumber');
             $table->string('logo')->nullable();
             $table->string('youtube')->nullable();

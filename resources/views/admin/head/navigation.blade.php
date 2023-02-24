@@ -2,8 +2,12 @@
     <div id="sidebar" class="sidebar sidebar-with-footer">
         <div class="app-brand">
             <a href="index.html">
-                <img src="{{asset($settings->logo)}}" alt="Mono">
-                <span class="brand-name">{{$settings->name}}</span>
+                @if(!empty($settings->logo))
+                    <img src="{{asset($settings->logo)}}" alt="Mono">
+                @endif
+                @if(!empty($settings->name))
+                    <span class="brand-name">{{$settings->name}}</span>
+                @endif
             </a>
         </div>
         <div class="sidebar-left" data-simplebar="" style="height: 100%;">

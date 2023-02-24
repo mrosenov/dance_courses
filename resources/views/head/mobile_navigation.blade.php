@@ -3,7 +3,9 @@
         <div class="header-top">
             <div class="logo">
                 <a href="index.html">
-                    <img src="{{asset($settings->logo)}}" alt="Site Logo">
+                    @if(!empty($settings->logo))
+                        <img src="{{asset($settings->logo)}}" alt="Site Logo">
+                    @endif
                 </a>
             </div>
             <div class="close-menu">
